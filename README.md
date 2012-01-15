@@ -11,4 +11,4 @@ v.0.1:
  * display amount of available/used space.
 * bugfixes:
  * syncing does not block the main thread.
- * syncing does not try to download all files at once. Downloads are queued in a [NSOperationQueue](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/NSOperationQueue_class/Reference/Reference.html).
+ * syncing does not try to download/upload all files at once. Downloads/Uploads are queued in a [NSOperationQueue](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/NSOperationQueue_class/Reference/Reference.html).
