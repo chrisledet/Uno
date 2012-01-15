@@ -20,7 +20,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AsynchronAdapter.h"
-@interface FileAttributesUpdatingAsynchronAdapterDelegate : NSObject <AsynchronAdapterDelegate>
+#import "AsynchronousAdapter.h"
+@interface FileAttributesUpdatingAsynchronAdapterDelegate : NSObject <AsynchronousAdapterDelegate>
 - (id)initWithAbsolutePath:(NSString*)absolutePath;
 @end

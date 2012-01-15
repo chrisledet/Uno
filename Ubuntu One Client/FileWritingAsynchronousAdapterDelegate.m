@@ -19,10 +19,40 @@
  * SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import "AsynchronAdapter.h"
-#import "NodeDetails.h"
+#import "FileWritingAsynchronousAdapterDelegate.h"
+#import "FileAttributesHelper.h"
 
-@interface FileWritingAsynchronAdapterDelegate : NSObject <AsynchronAdapterDelegate>
-- (id)initWithAbsolutePath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails;
+@implementation FileWritingAsynchronousAdapterDelegate{
+@private
+    NSString *_absolutePath;
+    NodeDetails *_nodeDetails;
+    NSFileHandle *_fileHandle;
+}
+
+- (id)initWithAbsolutePath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails {
+    self = [super init];
+    if (self) {
+        _absolutePath = path;
+        _nodeDetails = nodeDetails;
+
+        [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
+        _fileHandle = [NSFileHandle fileHandleForWritingAtPath:[path stringByExpandingTildeInPath]];
+    }
+
+    return self;
+}
+
+- (void)didReceiveData:(NSData *)data {
+    [_fileHandle writeData:data];
+}
+
+- (void)didFailWithError:(NSError*)error {
+    [_fileHandle closeFile];
+}
+
+- (void)didFinishLoading {
+    [_fileHandle closeFile];
+    [FileAttributesHelper updateFileAttributes:_absolutePath withNodeDetails:_nodeDetails];
+}
+
 @end

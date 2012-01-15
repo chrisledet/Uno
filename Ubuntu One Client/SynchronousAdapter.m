@@ -19,40 +19,51 @@
  * SOFTWARE.
  */
 
-#import "FileWritingAsynchronAdapterDelegate.h"
-#import "FileAttributesHelper.h"
+#import "SynchronousAdapter.h"
+#import "OAuthConsumer.h"
 
-@implementation FileWritingAsynchronAdapterDelegate{
-@private
-    NSString *_absolutePath;
-    NodeDetails *_nodeDetails;
-    NSFileHandle *_fileHandle;
-}
+@implementation SynchronousAdapter
 
-- (id)initWithAbsolutePath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails {
-    self = [super init];
-    if (self) {
-        _absolutePath = path;
-        _nodeDetails = nodeDetails;
-
-        [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-        _fileHandle = [NSFileHandle fileHandleForWritingAtPath:[path stringByExpandingTildeInPath]];
+#pragma mark -
+#pragma mark request data
+- (NSData*)requestDataWithRequest:(NSURLRequest*)request {
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    
+#ifdef DEBUG
+    NSLog(@"requesting %@", self.url);
+#endif
+    
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        NSLog(@"%s with error: %@", __PRETTY_FUNCTION__, error);
+        return nil;
     }
-
-    return self;
+    
+    return data;
 }
 
-- (void)didReceiveData:(NSData *)data {
-    [_fileHandle writeData:data];
+- (NSData*)requestData {
+    return [self requestDataWithRequest:[self constructRequest]];
 }
 
-- (void)didFailWithError:(NSError*)error {
-    [_fileHandle closeFile];
+#pragma mark -
+#pragma mark request objects(NSDictionary/NSArray)
+- (id)requestObjectsWithRequest:(NSURLRequest*)request {
+    NSData *data = [self requestDataWithRequest:request];
+
+    NSError *error = nil;
+    id objects = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"%s with error: %@", __PRETTY_FUNCTION__, error);
+        return nil;
+    }
+    
+    return objects;    
 }
 
-- (void)didFinishLoading {
-    [_fileHandle closeFile];
-    [FileAttributesHelper updateFileAttributes:_absolutePath withNodeDetails:_nodeDetails];
+- (id)requestObjects {
+    return [self requestObjectsWithRequest:[self constructRequest]];
 }
 
 @end

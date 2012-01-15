@@ -1,15 +1,15 @@
-#import "AsynchronAdapterOperation.h"
+#import "AsynchronousAdapterOperation.h"
 
-@interface AsynchronAdapterOperation (Private) <AsynchronAdapterDelegate>
+@interface AsynchronousAdapterOperation (Private) <AsynchronousAdapterDelegate>
 @end
 
-@implementation AsynchronAdapterOperation {
+@implementation AsynchronousAdapterOperation {
 @private
-    AsynchronAdapter *_adapter;
+    AsynchronousAdapter *_adapter;
     BOOL _isDone;
 }
 
-- (id)initWithAsynchronAdapter:(AsynchronAdapter*)adapter {
+- (id)initWithAsynchronousAdapter:(AsynchronousAdapter*)adapter {
     NSAssert(adapter, @"adapter must not be null.");
 
     self = [super init];
@@ -23,8 +23,8 @@
     return self;
 }
 
-+ (AsynchronAdapterOperation*)adapterOperationWithAsynchronAdapter:(AsynchronAdapter*)adapter {
-    return [[AsynchronAdapterOperation alloc] initWithAsynchronAdapter:adapter];
++ (AsynchronousAdapterOperation*)adapterOperationWithAsynchronousAdapter:(AsynchronousAdapter*)adapter {
+    return [[AsynchronousAdapterOperation alloc] initWithAsynchronousAdapter:adapter];
 }
 
 - (void)main {

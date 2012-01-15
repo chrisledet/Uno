@@ -19,10 +19,10 @@
  * SOFTWARE.
  */
 
-#import "SynchronAdapter.h"
+#import "SynchronousAdapter.h"
 #import "NodeDetails.h"
 
-@interface NodeDetailsAdapter : SynchronAdapter
+@interface NodeDetailsAdapter : SynchronousAdapter
 + (NodeDetails*)requestNodePath:(NSString*)nodePath withAuthorizationDetails:(AuthorizationDetails*)authorizationDetails andIncludingChildren:(BOOL)includingChildren;
 
 + (NodeDetails*)createDirectoryWithResourcePath:(NSString*)resourcePath andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;

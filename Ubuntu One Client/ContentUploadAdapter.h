@@ -19,9 +19,9 @@
  * SOFTWARE.
  */
 
-#import "AsynchronAdapter.h"
+#import "AsynchronousAdapter.h"
 
-@interface ContentUploadAdapter : AsynchronAdapter
+@interface ContentUploadAdapter : AsynchronousAdapter
 + (void)uploadFile:(NSString*)path withDirectoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
 + (ContentUploadAdapter*) adapterWithAbsolutePath:(NSString*)absolutePath directoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
 @end

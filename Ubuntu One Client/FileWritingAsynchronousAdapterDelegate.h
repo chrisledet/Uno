@@ -19,12 +19,10 @@
  * SOFTWARE.
  */
 
-#import "AbstractAdapter.h"
+#import <Foundation/Foundation.h>
+#import "AsynchronousAdapter.h"
+#import "NodeDetails.h"
 
-@interface SynchronAdapter : AbstractAdapter
-- (NSData*)requestData;
-- (NSData*)requestDataWithRequest:(NSURLRequest*)request;
-
-- (id)requestObjects;
-- (id)requestObjectsWithRequest:(NSURLRequest*)request;
+@interface FileWritingAsynchronousAdapterDelegate : NSObject <AsynchronousAdapterDelegate>
+- (id)initWithAbsolutePath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails;
 @end

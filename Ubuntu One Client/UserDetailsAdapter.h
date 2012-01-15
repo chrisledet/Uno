@@ -19,10 +19,10 @@
  * SOFTWARE.
  */
 
-#import "SynchronAdapter.h"
+#import "SynchronousAdapter.h"
 #import "UserDetails.h"
 #import "AuthorizationDetails.h"
 
-@interface UserDetailsAdapter : SynchronAdapter
+@interface UserDetailsAdapter : SynchronousAdapter
 + (UserDetails*)requestWithAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
 @end

@@ -19,21 +19,12 @@
  * SOFTWARE.
  */
 
-#import "AppDelegate.h"
-#import "AuthorizationDetailsAdapter.h"
-#import "NodeDetailsAdapter.h"
-#import "UserDetailsAdapter.h"
-#import "AsynchronousAdapterOperation.h"
-#import "FileWritingAsynchronousAdapterDelegate.h"
-#import "ContentAdapter.h"
+#import "AbstractAdapter.h"
 
-#import "ContentUploadAdapter.h"
-#import "FileAttributesUpdatingAsynchronAdapterDelegate.h"
+@interface SynchronousAdapter : AbstractAdapter
+- (NSData*)requestData;
+- (NSData*)requestDataWithRequest:(NSURLRequest*)request;
 
-@implementation AppDelegate
-@synthesize window = _window;
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // AuthorizationDetails *authorizationDetails = [AuthorizationDetails readFromApplicationSupportDirectory];
-}
+- (id)requestObjects;
+- (id)requestObjectsWithRequest:(NSURLRequest*)request;
 @end

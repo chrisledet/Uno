@@ -19,10 +19,10 @@
  * SOFTWARE.
  */
 
-#import "AsynchronAdapter.h"
+#import "AsynchronousAdapter.h"
 #import "AuthorizationDetails.h"
 
-@interface ContentAdapter : AsynchronAdapter
+@interface ContentAdapter : AsynchronousAdapter
 + (ContentAdapter*)adapterWithContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
 + (void)requestContentPath:(NSString*)contentPath withWithAuthorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
 @end

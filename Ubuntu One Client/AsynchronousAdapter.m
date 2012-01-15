@@ -19,9 +19,9 @@
  * SOFTWARE.
  */
 
-#import "AsynchronAdapter.h"
+#import "AsynchronousAdapter.h"
 
-@implementation AsynchronAdapter {
+@implementation AsynchronousAdapter {
 @private
     NSMutableArray *_delegates;
 }
@@ -32,7 +32,7 @@
     self = [super initWithUrl:url andAuthorizationDetails:authorizationDetails];
     if (self) {
         _delegates = [NSMutableArray array];
-        [delegates enumerateObjectsUsingBlock:^(id<AsynchronAdapterDelegate> delegate, NSUInteger idx, BOOL *stop) {
+        [delegates enumerateObjectsUsingBlock:^(id<AsynchronousAdapterDelegate> delegate, NSUInteger idx, BOOL *stop) {
             [self addDelegate:delegate];
         }];
     }
@@ -55,13 +55,13 @@
 #pragma mark -
 #pragma mark NSURLConnectionDelegate
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [_delegates enumerateObjectsUsingBlock:^(id<AsynchronAdapterDelegate> obj, NSUInteger idx, BOOL *stop) {
+    [_delegates enumerateObjectsUsingBlock:^(id<AsynchronousAdapterDelegate> obj, NSUInteger idx, BOOL *stop) {
         [obj didReceiveData:data];
     }];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [_delegates enumerateObjectsUsingBlock:^(id<AsynchronAdapterDelegate> obj, NSUInteger idx, BOOL *stop) {
+    [_delegates enumerateObjectsUsingBlock:^(id<AsynchronousAdapterDelegate> obj, NSUInteger idx, BOOL *stop) {
         [obj didFailWithError:error];
     }];
 }
@@ -71,20 +71,20 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [_delegates enumerateObjectsUsingBlock:^(id<AsynchronAdapterDelegate> obj, NSUInteger idx, BOOL *stop) {
+    [_delegates enumerateObjectsUsingBlock:^(id<AsynchronousAdapterDelegate> obj, NSUInteger idx, BOOL *stop) {
         [obj didFinishLoading];
     }];
 }
 
 #pragma mark -
 #pragma mark add/remove delegates
-- (void)addDelegate:(id<AsynchronAdapterDelegate>) delegate {
+- (void)addDelegate:(id<AsynchronousAdapterDelegate>) delegate {
     NSAssert(delegate, @"delegate must not be null.");
     NSAssert(_delegates, @"_delegates must not be null.");
     [_delegates addObject:delegate];
 }
 
-- (void)removeDelegate:(id<AsynchronAdapterDelegate>) delegate {
+- (void)removeDelegate:(id<AsynchronousAdapterDelegate>) delegate {
     NSAssert(delegate, @"delegate must not be null.");
     NSAssert(_delegates, @"_delegates must not be null.");
     [_delegates removeObject:delegate];

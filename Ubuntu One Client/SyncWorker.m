@@ -23,9 +23,9 @@
 #import "UserDetailsAdapter.h"
 #import "NodeDetailsAdapter.h"
 #import "ContentAdapter.h"
-#import "AsynchronAdapterOperation.h"
+#import "AsynchronousAdapterOperation.h"
 #import "ContentUploadAdapter.h"
-#import "FileWritingAsynchronAdapterDelegate.h"
+#import "FileWritingAsynchronousAdapterDelegate.h"
 #import "FileAttributesUpdatingAsynchronAdapterDelegate.h"
 
 @interface SyncWorker (Private)
@@ -190,10 +190,10 @@
     
     NSLog(@"downloading \"%@\" to \"%@\"", nodeDetails.resourcePath, absolutePath);
 
-    FileWritingAsynchronAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronAdapterDelegate alloc] initWithAbsolutePath:absolutePath andNodeDetails:nodeDetails];
+    FileWritingAsynchronousAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronousAdapterDelegate alloc] initWithAbsolutePath:absolutePath andNodeDetails:nodeDetails];
     NSArray *delegates = [NSArray arrayWithObject:fileWritingDelegate];
-    AsynchronAdapter *adapter = [ContentAdapter adapterWithContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:delegates];
-    NSOperation *operation = [AsynchronAdapterOperation adapterOperationWithAsynchronAdapter:adapter];
+    AsynchronousAdapter *adapter = [ContentAdapter adapterWithContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:delegates];
+    NSOperation *operation = [AsynchronousAdapterOperation adapterOperationWithAsynchronousAdapter:adapter];
     [_operationQueue addOperation:operation];
 }
 
@@ -207,7 +207,7 @@
     
     ContentUploadAdapter *adapter = [ContentUploadAdapter adapterWithAbsolutePath:absolutePath directoryContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:[NSArray arrayWithObject:delegate]];
     
-    NSOperation *operation = [AsynchronAdapterOperation adapterOperationWithAsynchronAdapter:adapter];
+    NSOperation *operation = [AsynchronousAdapterOperation adapterOperationWithAsynchronousAdapter:adapter];
     [_operationQueue addOperation:operation];
 }
 @end

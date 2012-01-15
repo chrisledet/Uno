@@ -21,17 +21,17 @@
 
 #import "AbstractAdapter.h"
 
-@protocol AsynchronAdapterDelegate
+@protocol AsynchronousAdapterDelegate
 - (void)didReceiveData:(NSData*)data;
 - (void)didFailWithError:(NSError*)error;
 - (void)didFinishLoading;
 @end
 
-@interface AsynchronAdapter : AbstractAdapter <NSURLConnectionDelegate>
+@interface AsynchronousAdapter : AbstractAdapter <NSURLConnectionDelegate>
 - (id)initWithUrl:(NSString*)url authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
 
 - (void)request;
 
-- (void)addDelegate:(id<AsynchronAdapterDelegate>) delegate;
-- (void)removeDelegate:(id<AsynchronAdapterDelegate>) delegate;
+- (void)addDelegate:(id<AsynchronousAdapterDelegate>) delegate;
+- (void)removeDelegate:(id<AsynchronousAdapterDelegate>) delegate;
 @end

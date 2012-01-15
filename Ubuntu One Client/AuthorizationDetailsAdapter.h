@@ -19,7 +19,7 @@
  * SOFTWARE.
  */
 
-#import "SynchronAdapter.h"
+#import "SynchronousAdapter.h"
 #import "AuthorizationDetails.h"
 
 @protocol AuthorizationDetailsAdapterDelegate
@@ -27,7 +27,7 @@
 - (void)didFailWithError:(NSError*)error;
 @end
 
-@interface AuthorizationDetailsAdapter : SynchronAdapter {
+@interface AuthorizationDetailsAdapter : SynchronousAdapter {
     NSMutableData *_responseData;
 }
 
