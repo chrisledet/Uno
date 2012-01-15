@@ -21,11 +21,6 @@
 
 #import <Foundation/Foundation.h>
 #import "AsynchronAdapter.h"
-#import "NodeDetails.h"
-
-@interface DownloadFileAttributeAsynchronAdapterDelegate : NSObject <AsynchronAdapterDelegate>
-@property(strong) NSString *path;
-@property(strong) NodeDetails *nodeDetails;
-
-- (id)initWithPath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails;
+@interface FileAttributesUpdatingAsynchronAdapterDelegate : NSObject <AsynchronAdapterDelegate>
+- (id)initWithAbsolutePath:(NSString*)absolutePath;
 @end

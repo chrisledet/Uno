@@ -19,12 +19,9 @@
  * SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import "SynchronAdapter.h"
-#import "AuthorizationDetails.h"
-#import "NodeDetails.h"
+#import "AsynchronAdapter.h"
 
-@interface ContentUploadAdapter : SynchronAdapter
-+ (void)uploadFile:(NSString*)path withDirectoryContentPath:(NSString*)directoryContentPath andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (void)updateFileAttributesForFile:(NSString*)path withNodeDetails:(NodeDetails*)nodeDetails;
+@interface ContentUploadAdapter : AsynchronAdapter
++ (void)uploadFile:(NSString*)path withDirectoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
++ (ContentUploadAdapter*) adapterWithAbsolutePath:(NSString*)absolutePath directoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
 @end

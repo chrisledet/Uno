@@ -20,15 +20,21 @@
  */
 
 #import "FileWritingAsynchronAdapterDelegate.h"
+#import "FileAttributesHelper.h"
 
 @implementation FileWritingAsynchronAdapterDelegate{
 @private
+    NSString *_absolutePath;
+    NodeDetails *_nodeDetails;
     NSFileHandle *_fileHandle;
 }
 
-- (id)initWithAbsolutePath:(NSString*)path {
+- (id)initWithAbsolutePath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails {
     self = [super init];
     if (self) {
+        _absolutePath = path;
+        _nodeDetails = nodeDetails;
+
         [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
         _fileHandle = [NSFileHandle fileHandleForWritingAtPath:[path stringByExpandingTildeInPath]];
     }
@@ -46,6 +52,7 @@
 
 - (void)didFinishLoading {
     [_fileHandle closeFile];
+    [FileAttributesHelper updateFileAttributes:_absolutePath withNodeDetails:_nodeDetails];
 }
 
 @end

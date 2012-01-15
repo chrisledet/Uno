@@ -19,21 +19,21 @@
  * SOFTWARE.
  */
 
-#import "AppDelegate.h"
-#import "AuthorizationDetailsAdapter.h"
-#import "NodeDetailsAdapter.h"
-#import "UserDetailsAdapter.h"
-#import "AsynchronAdapterOperation.h"
-#import "FileWritingAsynchronAdapterDelegate.h"
-#import "ContentAdapter.h"
+#import "FileAttributesHelper.h"
 
-#import "ContentUploadAdapter.h"
-#import "FileAttributesUpdatingAsynchronAdapterDelegate.h"
-
-@implementation AppDelegate
-@synthesize window = _window;
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // AuthorizationDetails *authorizationDetails = [AuthorizationDetails readFromApplicationSupportDirectory];
+@implementation FileAttributesHelper
++ (void)updateFileAttributes:(NSString*)path withNodeDetails:(NodeDetails*)nodeDetails {
+    NSAssert(path, @"path must not be null.");
+    NSAssert(nodeDetails, @"nodeDetails must not be null.");
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:2];
+    [attributes setObject:nodeDetails.whenChanged forKey:NSFileModificationDate];
+    [attributes setObject:nodeDetails.whenCreated forKey:NSFileCreationDate];
+    
+    NSError *error = nil;
+    [[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:path error:&error];
+    if (error) {
+        NSLog(@"%s with error: %@", __PRETTY_FUNCTION__, error);
+    }
 }
 @end

@@ -43,7 +43,13 @@
 #pragma mark -
 #pragma mark ...
 - (void)request {
-    [NSURLConnection connectionWithRequest:[self constructRequest] delegate:self];
+    NSURLRequest *request = [self constructRequest];
+    
+#ifdef DEBUG
+    NSLog(@"requesting %@", request.URL.absoluteString);
+#endif
+    
+    [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 #pragma mark -

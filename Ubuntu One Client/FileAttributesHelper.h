@@ -19,38 +19,9 @@
  * SOFTWARE.
  */
 
-#import "DownloadFileAttributeAsynchronAdapterDelegate.h"
+#import <Foundation/Foundation.h>
+#import "NodeDetails.h"
 
-@implementation DownloadFileAttributeAsynchronAdapterDelegate
-@synthesize path = _path;
-@synthesize nodeDetails = _nodeDetails;
-
-- (id)initWithPath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails {
-    self = [super init];
-    if (self) {
-        self.path = path;
-        self.nodeDetails = nodeDetails;
-    }
-
-    return self;
-}
-
-- (void)didReceiveData:(NSData *)data {
-    // ignore
-}
-
-- (void)didFailWithError:(NSError*)error {
-    // ignore
-}
-
-- (void)didFinishLoading {
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:self.nodeDetails.whenCreated, NSFileCreationDate, self.nodeDetails.whenChanged, NSFileModificationDate, nil];
-
-    NSError *error = nil;
-    [[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:self.path error:&error];
-    if (error) {
-        NSLog(@"%s with error: %@", __PRETTY_FUNCTION__, error);
-    }
-}
-
+@interface FileAttributesHelper : NSObject
++ (void)updateFileAttributes:(NSString*)path withNodeDetails:(NodeDetails*)nodeDetails;
 @end

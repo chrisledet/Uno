@@ -25,9 +25,8 @@
 #import "ContentAdapter.h"
 #import "AsynchronAdapterOperation.h"
 #import "ContentUploadAdapter.h"
-
 #import "FileWritingAsynchronAdapterDelegate.h"
-#import "DownloadFileAttributeAsynchronAdapterDelegate.h"
+#import "FileAttributesUpdatingAsynchronAdapterDelegate.h"
 
 @interface SyncWorker (Private)
 - (void)syncRemoteDirectoryRecursively:(NSString*)resourcePath;
@@ -191,9 +190,8 @@
     
     NSLog(@"downloading \"%@\" to \"%@\"", nodeDetails.resourcePath, absolutePath);
 
-    FileWritingAsynchronAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronAdapterDelegate alloc] initWithAbsolutePath:absolutePath];
-    DownloadFileAttributeAsynchronAdapterDelegate *fileAttributeSettingDelegate = [[DownloadFileAttributeAsynchronAdapterDelegate alloc] initWithPath:absolutePath andNodeDetails:nodeDetails];
-    NSArray *delegates = [NSArray arrayWithObjects:fileWritingDelegate, fileAttributeSettingDelegate, nil];
+    FileWritingAsynchronAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronAdapterDelegate alloc] initWithAbsolutePath:absolutePath andNodeDetails:nodeDetails];
+    NSArray *delegates = [NSArray arrayWithObject:fileWritingDelegate];
     AsynchronAdapter *adapter = [ContentAdapter adapterWithContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:delegates];
     NSOperation *operation = [AsynchronAdapterOperation adapterOperationWithAsynchronAdapter:adapter];
     [_operationQueue addOperation:operation];
@@ -204,7 +202,12 @@
     NSAssert(nodeDetails, @"nodeDetails must not be null.");
     
     NSLog(@"uploading \"%@\" to \"%@\"", absolutePath, nodeDetails.resourcePath);
-
-    [ContentUploadAdapter uploadFile:absolutePath withDirectoryContentPath:nodeDetails.contentPath andAuthorizationDetails:_authorizationDetails];
+    
+    FileAttributesUpdatingAsynchronAdapterDelegate *delegate = [[FileAttributesUpdatingAsynchronAdapterDelegate alloc] initWithAbsolutePath:absolutePath];    
+    
+    ContentUploadAdapter *adapter = [ContentUploadAdapter adapterWithAbsolutePath:absolutePath directoryContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:[NSArray arrayWithObject:delegate]];
+    
+    NSOperation *operation = [AsynchronAdapterOperation adapterOperationWithAsynchronAdapter:adapter];
+    [_operationQueue addOperation:operation];
 }
 @end

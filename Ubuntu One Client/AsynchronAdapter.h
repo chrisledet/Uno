@@ -29,7 +29,9 @@
 
 @interface AsynchronAdapter : AbstractAdapter <NSURLConnectionDelegate>
 - (id)initWithUrl:(NSString*)url authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
+
 - (void)request;
+
 - (void)addDelegate:(id<AsynchronAdapterDelegate>) delegate;
 - (void)removeDelegate:(id<AsynchronAdapterDelegate>) delegate;
 @end

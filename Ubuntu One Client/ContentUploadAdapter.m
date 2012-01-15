@@ -20,45 +20,63 @@
  */
 
 #import "ContentUploadAdapter.h"
-#import "AuthorizationDetails.h"
-#import "OAuthConsumer.h"
 #import "MIMETypeResolver.h"
 
-@implementation ContentUploadAdapter
-+ (void)uploadFile:(NSString*)path withDirectoryContentPath:(NSString*)directoryContentPath andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails{
+@interface ContentUploadAdapter (Private)
+- (ContentUploadAdapter*)initWithAbsolutePath:(NSString*)path directoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
+@end
 
-    NSString *contentPath = [directoryContentPath stringByAddingPercentEscapesUsingEncoding:NSISOLatin1StringEncoding];
-    NSString *url = [NSString stringWithFormat:@"https://files.one.ubuntu.com%@/%@", contentPath, path.lastPathComponent];
+@implementation ContentUploadAdapter {
+@private
+    NSString *_absolutePath;
+}
 
-    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+#pragma mark -
+#pragma mark static initialization methods
++ (ContentUploadAdapter*) adapterWithAbsolutePath:(NSString*)absolutePath directoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates {
+    return [[ContentUploadAdapter alloc] initWithAbsolutePath:absolutePath directoryContentPath:contentPath authorizationDetails:authorizationDetails andDelegates:delegates];
+}
+
+#pragma mark -
+#pragma mark initialization methods
+- (ContentUploadAdapter*)initWithAbsolutePath:(NSString*)absolutePath directoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates {
+        NSString *url = [NSString stringWithFormat:@"https://files.one.ubuntu.com%@/%@", contentPath, absolutePath.lastPathComponent];
+    self = [super initWithUrl:url authorizationDetails:authorizationDetails andDelegates:delegates];
+    if (self) {
+        _absolutePath = absolutePath;
+    }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark AbstractAdapter
+- (NSMutableURLRequest*)constructRequest {
+    NSError *error = nil;
+    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:_absolutePath error:&error];
+    if (error) {
+        NSLog(@"%s failed with erro: %@", __PRETTY_FUNCTION__, error);
+        return nil;
+    }
+
     NSNumber *contentLength = [attributes objectForKey:NSFileSize];
-    NSString *contentType = [MIMETypeResolver mimetypeForFile:path];
+    NSString *contentType = [MIMETypeResolver mimetypeForFile:_absolutePath];
     
-    ContentUploadAdapter *contentUploader = [[ContentUploadAdapter alloc] initWithUrl:url andAuthorizationDetails:authorizationDetails];
-    
-    NSMutableURLRequest *request = [contentUploader constructRequest];
+    NSMutableURLRequest *request = [super constructRequest];
     request.HTTPMethod = @"PUT";
-    request.HTTPBodyStream = [NSInputStream inputStreamWithFileAtPath:path];
+    request.HTTPBodyStream = [NSInputStream inputStreamWithFileAtPath:_absolutePath];
     [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
     [request setValue:contentLength.stringValue forHTTPHeaderField:@"Content-Length"];
-
-    NSDictionary *objects = [contentUploader requestObjectsWithRequest:request];
-    NodeDetails *nodeDetails = [NodeDetails nodeDetailsWithObjects:objects];
-    [contentUploader updateFileAttributesForFile:path withNodeDetails:nodeDetails];
+    
+    return request;
 }
 
-- (void)updateFileAttributesForFile:(NSString*)path withNodeDetails:(NodeDetails*)nodeDetails {
-    NSAssert(path, @"path must not be null.");
-    NSAssert(nodeDetails, @"nodeDetails must not be null.");
-
-    NSError *error = nil;
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:2];
-    [attributes setObject:nodeDetails.whenCreated forKey:NSFileCreationDate];
-    [attributes setObject:nodeDetails.whenChanged forKey:NSFileModificationDate];
-
-    [[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:path error:&error];
-    if (error) {
-        NSLog(@"%s with error: %@", __PRETTY_FUNCTION__, error);
-    }
+#pragma mark -
+#pragma mark other methods
++ (void)uploadFile:(NSString*)absolutePath withDirectoryContentPath:(NSString*)contentPath authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates {
+    ContentUploadAdapter *adapter = [[ContentUploadAdapter alloc] initWithAbsolutePath:absolutePath directoryContentPath:contentPath authorizationDetails:authorizationDetails andDelegates:delegates];
+    
+    [adapter request];
 }
+
 @end

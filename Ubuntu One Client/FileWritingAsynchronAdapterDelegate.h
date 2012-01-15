@@ -21,7 +21,8 @@
 
 #import <Foundation/Foundation.h>
 #import "AsynchronAdapter.h"
+#import "NodeDetails.h"
 
 @interface FileWritingAsynchronAdapterDelegate : NSObject <AsynchronAdapterDelegate>
-- (id)initWithAbsolutePath:(NSString*)path;
+- (id)initWithAbsolutePath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails;
 @end
