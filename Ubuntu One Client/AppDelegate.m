@@ -28,20 +28,13 @@
 #import "DownloadFileAttributeAsynchronAdapterDelegate.h"
 #import "ContentAdapter.h"
 
+#import "NewContentUploadAdapter.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    AuthorizationDetails *authorizationDetails = [AuthorizationDetails readFromApplicationSupportDirectory];
-
-    NSString *absolutePath = @"/Users/user/Ubuntu One/foo.sh";
-    FileWritingAsynchronAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronAdapterDelegate alloc] initWithAbsolutePath:absolutePath];
-    
-    ContentAdapter *adapter = [ContentAdapter adapterWithContentPath:@"/content/~/Ubuntu One/foo.sh" authorizationDetails:authorizationDetails andDelegates:[NSArray arrayWithObject:fileWritingDelegate]];
-
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    AsynchronAdapterOperation *operation = [AsynchronAdapterOperation adapterOperationWithAsynchronAdapter:adapter];
-    [queue addOperation:operation];
+    // AuthorizationDetails *authorizationDetails = [AuthorizationDetails readFromApplicationSupportDirectory];
 }
 @end
