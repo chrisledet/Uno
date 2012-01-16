@@ -44,7 +44,6 @@
 		CE9285F314B3877A00FE35EB /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9285E214B3877A00FE35EB /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE9285F414B3877A00FE35EB /* OATestServer.rb in Resources */ = {isa = PBXBuildFile; fileRef = CE9285E414B3877A00FE35EB /* OATestServer.rb */; };
 		CE9285F514B3877A00FE35EB /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9285E614B3877A00FE35EB /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CE9285F614B3877A00FE35EB /* README in Resources */ = {isa = PBXBuildFile; fileRef = CE9285E814B3877A00FE35EB /* README */; };
 		CE9285F814B3890100FE35EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9285F714B3890100FE35EB /* Security.framework */; };
 		CE9285FA14B38A1C00FE35EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9285F914B38A1C00FE35EB /* main.m */; };
 		CE9285FD14B38B0B00FE35EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9285FB14B38B0B00FE35EB /* MainMenu.xib */; };
@@ -58,9 +57,9 @@
 /* Begin PBXFileReference section */
 		CE2848EF14BA44DF0041C7EC /* SyncWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncWorker.h; sourceTree = "<group>"; };
 		CE2848F014BA44DF0041C7EC /* SyncWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncWorker.m; sourceTree = "<group>"; };
-		CE2848F214BE0A9B0041C7EC /* AsynchronousAdapterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AsynchronousAdapterOperation.h; sourceTree = "<group>"; };
+		CE2848F214BE0A9B0041C7EC /* AsynchronousAdapterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynchronousAdapterOperation.h; sourceTree = "<group>"; };
 		CE2848F314BE0A9B0041C7EC /* AsynchronousAdapterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynchronousAdapterOperation.m; sourceTree = "<group>"; };
-		CE2848FC14C2C50A0041C7EC /* ContentUploadAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ContentUploadAdapter.h; sourceTree = "<group>"; };
+		CE2848FC14C2C50A0041C7EC /* ContentUploadAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentUploadAdapter.h; sourceTree = "<group>"; };
 		CE2848FD14C2C50A0041C7EC /* ContentUploadAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentUploadAdapter.m; sourceTree = "<group>"; };
 		CE28490014C30DE50041C7EC /* FileAttributesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttributesHelper.h; sourceTree = "<group>"; };
 		CE28490114C30DE60041C7EC /* FileAttributesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAttributesHelper.m; sourceTree = "<group>"; };
@@ -82,7 +81,7 @@
 		CE92857914B3874700FE35EB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CE92857A14B3874700FE35EB /* AuthorizationDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationDetails.h; sourceTree = "<group>"; };
 		CE92857B14B3874700FE35EB /* AuthorizationDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationDetails.m; sourceTree = "<group>"; };
-		CE92858614B3874800FE35EB /* FileWritingAsynchronousAdapterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FileWritingAsynchronousAdapterDelegate.h; sourceTree = "<group>"; };
+		CE92858614B3874800FE35EB /* FileWritingAsynchronousAdapterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileWritingAsynchronousAdapterDelegate.h; sourceTree = "<group>"; };
 		CE92858714B3874800FE35EB /* FileWritingAsynchronousAdapterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileWritingAsynchronousAdapterDelegate.m; sourceTree = "<group>"; };
 		CE92858914B3874800FE35EB /* MIMETypeResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIMETypeResolver.h; sourceTree = "<group>"; };
 		CE92858A14B3874800FE35EB /* MIMETypeResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIMETypeResolver.m; sourceTree = "<group>"; };
@@ -97,7 +96,7 @@
 		CE92859714B3874900FE35EB /* OptionsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsWindowController.m; sourceTree = "<group>"; };
 		CE92859A14B3874A00FE35EB /* StatusItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemController.h; sourceTree = "<group>"; };
 		CE92859B14B3874A00FE35EB /* StatusItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemController.m; sourceTree = "<group>"; };
-		CE92859C14B3874A00FE35EB /* SynchronousAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SynchronousAdapter.h; sourceTree = "<group>"; };
+		CE92859C14B3874A00FE35EB /* SynchronousAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronousAdapter.h; sourceTree = "<group>"; };
 		CE92859D14B3874A00FE35EB /* SynchronousAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronousAdapter.m; sourceTree = "<group>"; };
 		CE9285A114B3874A00FE35EB /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
 		CE9285A214B3874A00FE35EB /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
@@ -133,7 +132,6 @@
 		CE9285E514B3877A00FE35EB /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
 		CE9285E614B3877A00FE35EB /* OAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken.m; sourceTree = "<group>"; };
 		CE9285E714B3877A00FE35EB /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
-		CE9285E814B3877A00FE35EB /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		CE9285F714B3890100FE35EB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE9285F914B38A1C00FE35EB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE9285FC14B38B0B00FE35EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -142,7 +140,7 @@
 		CEEAC17914B3A93A00EAA1FD /* AuthorizationDetailsAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationDetailsAdapter.m; sourceTree = "<group>"; };
 		CEEAC17E14B47E6400EAA1FD /* NodeDetailsAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeDetailsAdapter.h; sourceTree = "<group>"; };
 		CEEAC17F14B47E6400EAA1FD /* NodeDetailsAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeDetailsAdapter.m; sourceTree = "<group>"; };
-		CEEAC18314B4D38400EAA1FD /* AsynchronousAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AsynchronousAdapter.h; sourceTree = "<group>"; };
+		CEEAC18314B4D38400EAA1FD /* AsynchronousAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynchronousAdapter.h; sourceTree = "<group>"; };
 		CEEAC18414B4D38400EAA1FD /* AsynchronousAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynchronousAdapter.m; sourceTree = "<group>"; };
 		CEEAC18614B4E27E00EAA1FD /* ContentAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentAdapter.h; sourceTree = "<group>"; };
 		CEEAC18714B4E27E00EAA1FD /* ContentAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentAdapter.m; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 				CE9285E514B3877A00FE35EB /* OAToken.h */,
 				CE9285E614B3877A00FE35EB /* OAToken.m */,
 				CE9285E714B3877A00FE35EB /* OAuthConsumer.h */,
-				CE9285E814B3877A00FE35EB /* README */,
 			);
 			path = OAuthConsumer;
 			sourceTree = "<group>";
@@ -456,7 +453,6 @@
 				CE9285BE14B3874A00FE35EB /* OptionsWindow.xib in Resources */,
 				CE9285C614B3874A00FE35EB /* UserDetails.xib in Resources */,
 				CE9285F414B3877A00FE35EB /* OATestServer.rb in Resources */,
-				CE9285F614B3877A00FE35EB /* README in Resources */,
 				CE9285FD14B38B0B00FE35EB /* MainMenu.xib in Resources */,
 				CEEAC17114B394D300EAA1FD /* u1.icns in Resources */,
 			);

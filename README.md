@@ -2,6 +2,13 @@ about
 --------
 [Ubuntu One](http://one.ubuntu.com/) Cleint for the Mac OS.
 
+requirements
+--------
+Mac OS 10.7 (Lion)
+
+download
+--------
+[Ubuntu One Client.zip](https://github.com/downloads/yevmel/Ubuntu-One-Client/Ubuntu%20One%20Client.app.zip)
 changelog
 --------
 v.0.1:
