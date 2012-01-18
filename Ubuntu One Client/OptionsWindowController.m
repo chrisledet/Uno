@@ -56,12 +56,14 @@
 
 - (void)setContentViewAndResiize:(NSView*)view {
     NSWindow *window = self.window;
-    NSRect newFrame = [window frameRectForContentRect:view.frame];
-
+    NSRect frame = view.frame;
+    NSRect newFrame = [window frameRectForContentRect:frame];
     newFrame.origin = window.frame.origin;
-    
+
+    view.frame = NSMakeRect(0, 0, frame.size.width, frame.size.height);
+
     [window setFrame:newFrame display:YES animate:YES];
-    [window setContentView:view];
+    [window.contentView setSubviews:[NSArray arrayWithObject:view]];
 }
 
 - (id)initWithContentFromNib {
