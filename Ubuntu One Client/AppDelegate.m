@@ -33,7 +33,18 @@
 @implementation AppDelegate
 @synthesize window = _window;
 
+- (void)setupDefaultSettings {
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
+    
+    NSString *defaultLocalFolder = [@"~/Ubuntu One" stringByExpandingTildeInPath];
+    [defaultValues setObject:defaultLocalFolder forKey:kLocalFolder];
+    [defaultValues setObject:[NSArray arrayWithObject:defaultLocalFolder] forKey:kCachedLocalFolders];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // AuthorizationDetails *authorizationDetails = [AuthorizationDetails readFromApplicationSupportDirectory];
+    [self setupDefaultSettings];
 }
 @end
