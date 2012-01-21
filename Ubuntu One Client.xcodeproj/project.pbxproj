@@ -47,6 +47,8 @@
 		CE9285F814B3890100FE35EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9285F714B3890100FE35EB /* Security.framework */; };
 		CE9285FA14B38A1C00FE35EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9285F914B38A1C00FE35EB /* main.m */; };
 		CE9285FD14B38B0B00FE35EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9285FB14B38B0B00FE35EB /* MainMenu.xib */; };
+		CEB41E3614C60B2F002A2FA8 /* GeneralOptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB41E3414C60B2F002A2FA8 /* GeneralOptionsController.m */; };
+		CEB41E3714C60B2F002A2FA8 /* GeneralOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB41E3514C60B2F002A2FA8 /* GeneralOptions.xib */; };
 		CEEAC17114B394D300EAA1FD /* u1.icns in Resources */ = {isa = PBXBuildFile; fileRef = CEEAC17014B394D300EAA1FD /* u1.icns */; };
 		CEEAC17A14B3A93A00EAA1FD /* AuthorizationDetailsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEAC17914B3A93A00EAA1FD /* AuthorizationDetailsAdapter.m */; };
 		CEEAC18014B47E6400EAA1FD /* NodeDetailsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEAC17F14B47E6400EAA1FD /* NodeDetailsAdapter.m */; };
@@ -65,6 +67,7 @@
 		CE28490114C30DE60041C7EC /* FileAttributesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAttributesHelper.m; sourceTree = "<group>"; };
 		CE28490314C3149E0041C7EC /* FileAttributesUpdatingAsynchronAdapterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttributesUpdatingAsynchronAdapterDelegate.h; sourceTree = "<group>"; };
 		CE28490414C3149E0041C7EC /* FileAttributesUpdatingAsynchronAdapterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAttributesUpdatingAsynchronAdapterDelegate.m; sourceTree = "<group>"; };
+		CE31F84B14CB193900B13569 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		CE92853614B3815400FE35EB /* Ubuntu One Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ubuntu One Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE92853A14B3815400FE35EB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CE92853D14B3815400FE35EB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,9 @@
 		CE9285F714B3890100FE35EB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE9285F914B38A1C00FE35EB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE9285FC14B38B0B00FE35EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CEB41E3314C60B2F002A2FA8 /* GeneralOptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralOptionsController.h; sourceTree = "<group>"; };
+		CEB41E3414C60B2F002A2FA8 /* GeneralOptionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralOptionsController.m; sourceTree = "<group>"; };
+		CEB41E3514C60B2F002A2FA8 /* GeneralOptions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralOptions.xib; sourceTree = "<group>"; };
 		CEEAC17014B394D300EAA1FD /* u1.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = u1.icns; sourceTree = "<group>"; };
 		CEEAC17814B3A93A00EAA1FD /* AuthorizationDetailsAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationDetailsAdapter.h; sourceTree = "<group>"; };
 		CEEAC17914B3A93A00EAA1FD /* AuthorizationDetailsAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationDetailsAdapter.m; sourceTree = "<group>"; };
@@ -166,6 +172,26 @@
 				CE2848F014BA44DF0041C7EC /* SyncWorker.m */,
 			);
 			name = "Sync Worker";
+			sourceTree = "<group>";
+		};
+		CE31F84914CB162600B13569 /* General Options */ = {
+			isa = PBXGroup;
+			children = (
+				CEB41E3314C60B2F002A2FA8 /* GeneralOptionsController.h */,
+				CEB41E3414C60B2F002A2FA8 /* GeneralOptionsController.m */,
+				CEB41E3514C60B2F002A2FA8 /* GeneralOptions.xib */,
+			);
+			name = "General Options";
+			sourceTree = "<group>";
+		};
+		CE31F84A14CB164600B13569 /* Account Options */ = {
+			isa = PBXGroup;
+			children = (
+				CE9285A314B3874A00FE35EB /* UserDetails.xib */,
+				CE9285A614B3874A00FE35EB /* UserDetailsController.h */,
+				CE9285A714B3874A00FE35EB /* UserDetailsController.m */,
+			);
+			name = "Account Options";
 			sourceTree = "<group>";
 		};
 		CE92852B14B3815400FE35EB = {
@@ -273,6 +299,7 @@
 				CE92857814B3874700FE35EB /* AppDelegate.h */,
 				CE92857914B3874700FE35EB /* AppDelegate.m */,
 				CEEAC18114B4CAE500EAA1FD /* Helper */,
+				CE31F84B14CB193900B13569 /* Constants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -311,14 +338,13 @@
 		CE92860114B38FE700FE35EB /* Gui */ = {
 			isa = PBXGroup;
 			children = (
+				CE31F84A14CB164600B13569 /* Account Options */,
+				CE31F84914CB162600B13569 /* General Options */,
 				CE92859514B3874900FE35EB /* OptionsWindow.xib */,
 				CE92859614B3874900FE35EB /* OptionsWindowController.h */,
 				CE92859714B3874900FE35EB /* OptionsWindowController.m */,
 				CE92859A14B3874A00FE35EB /* StatusItemController.h */,
 				CE92859B14B3874A00FE35EB /* StatusItemController.m */,
-				CE9285A314B3874A00FE35EB /* UserDetails.xib */,
-				CE9285A614B3874A00FE35EB /* UserDetailsController.h */,
-				CE9285A714B3874A00FE35EB /* UserDetailsController.m */,
 			);
 			name = Gui;
 			sourceTree = "<group>";
@@ -455,6 +481,7 @@
 				CE9285F414B3877A00FE35EB /* OATestServer.rb in Resources */,
 				CE9285FD14B38B0B00FE35EB /* MainMenu.xib in Resources */,
 				CEEAC17114B394D300EAA1FD /* u1.icns in Resources */,
+				CEB41E3714C60B2F002A2FA8 /* GeneralOptions.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +528,7 @@
 				CE2848FE14C2C50A0041C7EC /* ContentUploadAdapter.m in Sources */,
 				CE28490214C30DE70041C7EC /* FileAttributesHelper.m in Sources */,
 				CE28490514C3149E0041C7EC /* FileAttributesUpdatingAsynchronAdapterDelegate.m in Sources */,
+				CEB41E3614C60B2F002A2FA8 /* GeneralOptionsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

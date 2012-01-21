@@ -21,14 +21,17 @@
 
 #import "OptionsWindowController.h"
 #import "AuthorizationDetails.h"
+#import "GeneralOptionsController.h"
 
 @interface OptionsWindowController (Private)
 - (void)setContentViewAndResiize:(NSView*)view;
+- (void)refreshAccountTab;
 @end
 
 @implementation OptionsWindowController{
 @private
     UserDetailsController *_userDetailsController;
+    GeneralOptionsController *_generalOptionsController;
 }
 
 @synthesize loginWindow;
@@ -94,10 +97,21 @@
 }
 
 #pragma mark -
-#pragma mark actions
+#pragma mark Toolbar Actions
 - (IBAction)clickedAccountToolbarItem:(NSToolbarItem *)sender {
     [self refreshAccountTab];
 }
+
+- (IBAction)clickedGeneralToolbarItem:(NSToolbarItem *)sender {
+    if (!_generalOptionsController) {
+        _generalOptionsController = [[GeneralOptionsController alloc] initWithContentFromNib];
+    }
+    
+    [self setContentViewAndResiize:_generalOptionsController.view];
+}
+
+#pragma mark -
+#pragma mark LoginForm Actions
 
 - (IBAction)clickedRequestAuthorizationButton:(NSButton *)sender {
     NSString *username = self.usernameTextfield.stringValue;
@@ -111,7 +125,7 @@
 }
 
 #pragma mark -
-#pragma mark AuthorizationDetailsRequesterDelegate
+#pragma mark AuthorizationDetailsAdapterDelegate
 - (void)didFinishWithAuthorizationDetails:(AuthorizationDetails*)authorizationDetails {
     [authorizationDetails writeToApplicationSupportDirectory];
 

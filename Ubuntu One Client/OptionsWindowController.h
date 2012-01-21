@@ -31,9 +31,10 @@
 @property (strong) IBOutlet NSWindow *loginWindow;
 
 - (id)initWithContentFromNib;
-- (void)refreshAccountTab;
 
 - (IBAction)clickedRequestAuthorizationButton:(NSButton *)sender;
 - (IBAction)clickedCancelAuthorizationButton:(NSButton *)sender;
+
+- (IBAction)clickedGeneralToolbarItem:(NSToolbarItem *)sender;
 - (IBAction)clickedAccountToolbarItem:(NSToolbarItem *)sender;
 @end

@@ -22,6 +22,8 @@
 #import "StatusItemController.h"
 #import "NSBundle+ApplicationName.h"
 #import "SyncWorker.h"
+#import "Constants.h"
+
 
 @implementation StatusItemController {
 @private
@@ -48,7 +50,8 @@
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender {
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
-    NSString *path = [@"~/Ubuntu One" stringByExpandingTildeInPath];
+
+    NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];
     [SyncWorker syncWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
 }
 
