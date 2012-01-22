@@ -30,6 +30,7 @@
 @property(strong) NSDate *whenCreated;
 @property(strong) NSDate *whenChanged;
 @property(strong) NSString *hash;
+@property(strong) NSNumber *size;
 
 + (NodeDetails*)nodeDetailsWithObjects:(NSDictionary*)objects;
 @end

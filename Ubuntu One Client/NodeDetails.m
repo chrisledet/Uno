@@ -35,6 +35,7 @@
 @synthesize whenChanged = _whenChanged;
 @synthesize whenCreated = _whenCreated;
 @synthesize hash = _hash;
+@synthesize size = _size;
 
 + (NodeDetails*)nodeDetailsWithObjects:(NSDictionary*)objects {
     NodeDetails *result = [[NodeDetails alloc] init];
@@ -44,6 +45,7 @@
         result.path = [objects objectForKey:@"path"];
         result.resourcePath = [objects objectForKey:@"resource_path"];
         result.hash = [objects objectForKey:@"hash"];
+        result.size = [objects objectForKey:@"size"];
 
         NSString *whenChangedString = [objects objectForKey:@"when_changed"];
         result.whenChanged = [NodeDetails dateFromString:whenChangedString];
@@ -82,13 +84,13 @@
     NSMutableString *childrenDescription = [NSMutableString stringWithString:@""];
     if (self.children) {
         [childrenDescription appendString:@"["];
-        [self.children enumerateObjectsUsingBlock:^(NodeDetails *child, NSUInteger idx, BOOL *stop) {
+        [_children enumerateObjectsUsingBlock:^(NodeDetails *child, NSUInteger idx, BOOL *stop) {
             [childrenDescription appendFormat:@"%ld=%@; ", idx, child];
         }];
         [childrenDescription appendString:@"]"];
     }
 
-    return [NSString stringWithFormat:@"NodeDetails: [kind=%@; contentPath=%@; path=%@; resourcePath=%@; whenCreated=%@; whenChanged=%@; children=%@]", self.kind, self.contentPath, self.path, self.resourcePath, self.whenCreated, self.whenChanged, childrenDescription];
+    return [NSString stringWithFormat:@"NodeDetails: [kind=%@; contentPath=%@; path=%@; resourcePath=%@; whenCreated=%@; whenChanged=%@; size=%@; children=%@]", _kind, _contentPath, _path, _resourcePath, _whenCreated, _whenChanged, _size, childrenDescription];
 }
 
 @end
