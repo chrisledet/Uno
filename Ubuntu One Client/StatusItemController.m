@@ -24,7 +24,6 @@
 #import "SyncWorker.h"
 #import "Constants.h"
 
-
 @implementation StatusItemController {
 @private
     NSStatusItem *_statusItem;
@@ -50,7 +49,6 @@
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender {
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
-
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];
     [SyncWorker syncWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
 }

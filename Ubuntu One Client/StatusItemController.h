@@ -24,7 +24,8 @@
 #import "OptionsWindowController.h"
 
 @interface StatusItemController : NSObject
-@property (weak) IBOutlet NSMenu *menu;
+@property(weak) IBOutlet NSMenu *menu;
+
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender;
 - (IBAction)clickedOptionsMenuItem:(NSMenuItem *)sender;
 @end

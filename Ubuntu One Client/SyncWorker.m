@@ -25,6 +25,7 @@
 #import "ContentAdapter.h"
 #import "AsynchronousAdapterOperation.h"
 #import "ContentUploadAdapter.h"
+
 #import "FileWritingAsynchronousAdapterDelegate.h"
 #import "FileAttributesUpdatingAsynchronAdapterDelegate.h"
 
@@ -184,15 +185,17 @@
 
 #pragma mark -
 #pragma mark FileHandler
-- (void)download:(NodeDetails*)nodeDetails to:(NSString*)absolutePath {
-    NSAssert(absolutePath, @"absolutePath must not be null.");
+- (void)download:(NodeDetails*)nodeDetails to:(NSString*)path {
+    NSAssert(path, @"absolutePath must not be null.");
     NSAssert(nodeDetails, @"nodeDetails must not be null.");
     
-    NSLog(@"downloading \"%@\" to \"%@\"", nodeDetails.resourcePath, absolutePath);
+    NSLog(@"downloading \"%@\" to \"%@\"", nodeDetails.resourcePath, path);
 
-    FileWritingAsynchronousAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronousAdapterDelegate alloc] initWithAbsolutePath:absolutePath andNodeDetails:nodeDetails];
-    NSArray *delegates = [NSArray arrayWithObject:fileWritingDelegate];
+    FileWritingAsynchronousAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronousAdapterDelegate alloc] initWithAbsolutePath:path andNodeDetails:nodeDetails];    
+
+    NSArray *delegates = [NSArray arrayWithObjects:fileWritingDelegate, nil];
     AsynchronousAdapter *adapter = [ContentAdapter adapterWithContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:delegates];
+
     NSOperation *operation = [AsynchronousAdapterOperation adapterOperationWithAsynchronousAdapter:adapter];
     [_operationQueue addOperation:operation];
 }

@@ -32,14 +32,16 @@
 - (id)initWithAbsolutePath:(NSString*)path andNodeDetails:(NodeDetails*)nodeDetails {
     self = [super init];
     if (self) {
-        _absolutePath = path;
+        _absolutePath = [path stringByExpandingTildeInPath];
         _nodeDetails = nodeDetails;
-
-        [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-        _fileHandle = [NSFileHandle fileHandleForWritingAtPath:[path stringByExpandingTildeInPath]];
     }
 
     return self;
+}
+
+- (void)willStartLoading {
+    [[NSFileManager defaultManager] createFileAtPath:_absolutePath contents:nil attributes:nil];
+    _fileHandle = [NSFileHandle fileHandleForWritingAtPath:_absolutePath];
 }
 
 - (void)didReceiveData:(NSData *)data {

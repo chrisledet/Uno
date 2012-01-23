@@ -22,6 +22,7 @@
 #import "AbstractAdapter.h"
 
 @protocol AsynchronousAdapterDelegate
+- (void)willStartLoading;
 - (void)didReceiveData:(NSData*)data;
 - (void)didFailWithError:(NSError*)error;
 - (void)didFinishLoading;

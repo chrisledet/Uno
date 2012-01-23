@@ -49,6 +49,10 @@
     NSLog(@"requesting %@", request.URL.absoluteString);
 #endif
     
+    [_delegates enumerateObjectsUsingBlock:^(id<AsynchronousAdapterDelegate> obj, NSUInteger idx, BOOL *stop) {
+        [obj willStartLoading];
+    }];
+    
     [NSURLConnection connectionWithRequest:request delegate:self];
 }
 

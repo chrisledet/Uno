@@ -38,6 +38,10 @@
     return self;
 }
 
+- (void)willStartLoading {
+    // ...
+}
+
 - (void)didReceiveData:(NSData*)data {
     if (!_data) {
         _data = [NSMutableData dataWithData:data];

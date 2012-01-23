@@ -1,8 +1,5 @@
 #import "AsynchronousAdapterOperation.h"
 
-@interface AsynchronousAdapterOperation (Private) <AsynchronousAdapterDelegate>
-@end
-
 @implementation AsynchronousAdapterOperation {
 @private
     AsynchronousAdapter *_adapter;
@@ -36,6 +33,11 @@
 
 #pragma mark -
 #pragma mark AsynchronAdapterDelegate
+
+- (void)willStartLoading {
+    // ...
+}
+
 - (void)didReceiveData:(NSData*)data {
     // ...
 }
