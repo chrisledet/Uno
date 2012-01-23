@@ -44,7 +44,6 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // AuthorizationDetails *authorizationDetails = [AuthorizationDetails readFromApplicationSupportDirectory];
     [self setupDefaultSettings];
 }
 @end
