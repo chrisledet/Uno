@@ -19,14 +19,44 @@
  * SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import "AuthorizationDetails.h"
-#import "AsynchronousAdapter.h"
+#import "ProgressAsynchronousAdapterDelegate.h"
 
-@interface SyncWorker : NSObject
-+ (void)syncWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (id)initWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (void)sync;
+@implementation ProgressAsynchronousAdapterDelegate {
+@private
+    NSArrayController *_progressEntries;
+    NSMutableDictionary *_objects;
+}
 
-- (void)addDelegateFactory:(id<AsynchronousAdapterDelegateFactory>)factory;
+- (id)initWithProgressentries:(NSArrayController*)progressEntries andObjects:(NSDictionary*)objects {
+    NSAssert(progressEntries, @"progressEntries must not be null.");
+
+    self = [super init];
+    if (self) {
+        _progressEntries = progressEntries;
+        _objects = [NSMutableDictionary dictionaryWithDictionary:objects];
+
+        [_objects setObject:[_objects objectForKey:@"filename"] forKey:@"description"];
+    }
+
+    return self;
+}
+
+- (void)willStartLoading {
+    NSAssert(_progressEntries, @"_progressEntries must not be null");
+    NSAssert(_objects, @"_objects must not be null");
+
+    [_progressEntries addObject:_objects];
+}
+
+- (void)didReceiveData:(NSData*)data {
+    // ...
+}
+
+- (void)didFailWithError:(NSError*)error {
+    [_progressEntries removeObject:_objects];
+}
+
+- (void)didFinishLoading {
+    [_progressEntries removeObject:_objects];    
+}
 @end

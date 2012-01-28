@@ -78,15 +78,6 @@
     return self;
 }
 
-- (id)initWithWindow:(NSWindow *)window {
-    self = [super initWithWindow:window];
-    if (self) {
-        // ...
-    }
-    
-    return self;
-}
-
 - (void)windowDidLoad {
     [self refreshAccountTab];
     // [super windowDidLoad];

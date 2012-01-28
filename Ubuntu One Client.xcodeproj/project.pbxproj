@@ -54,6 +54,9 @@
 		CEEAC18014B47E6400EAA1FD /* NodeDetailsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEAC17F14B47E6400EAA1FD /* NodeDetailsAdapter.m */; };
 		CEEAC18514B4D38500EAA1FD /* AsynchronousAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEAC18414B4D38400EAA1FD /* AsynchronousAdapter.m */; };
 		CEEAC18814B4E27E00EAA1FD /* ContentAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEAC18714B4E27E00EAA1FD /* ContentAdapter.m */; };
+		CEEEAA0E14CF242500993544 /* ProgressAsynchronousAdapterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAA0D14CF242500993544 /* ProgressAsynchronousAdapterDelegate.m */; };
+		CEEEAA1114CF42DB00993544 /* ProgressAsynchronousAdapterDelegateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAA1014CF42DB00993544 /* ProgressAsynchronousAdapterDelegateFactory.m */; };
+		CEEEAA5814D4A65100993544 /* DownloadsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEEAA5714D4A64F00993544 /* DownloadsArrayController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +153,12 @@
 		CEEAC18414B4D38400EAA1FD /* AsynchronousAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynchronousAdapter.m; sourceTree = "<group>"; };
 		CEEAC18614B4E27E00EAA1FD /* ContentAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentAdapter.h; sourceTree = "<group>"; };
 		CEEAC18714B4E27E00EAA1FD /* ContentAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentAdapter.m; sourceTree = "<group>"; };
+		CEEEAA0C14CF242400993544 /* ProgressAsynchronousAdapterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressAsynchronousAdapterDelegate.h; sourceTree = "<group>"; };
+		CEEEAA0D14CF242500993544 /* ProgressAsynchronousAdapterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressAsynchronousAdapterDelegate.m; sourceTree = "<group>"; };
+		CEEEAA0F14CF42DB00993544 /* ProgressAsynchronousAdapterDelegateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressAsynchronousAdapterDelegateFactory.h; sourceTree = "<group>"; };
+		CEEEAA1014CF42DB00993544 /* ProgressAsynchronousAdapterDelegateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressAsynchronousAdapterDelegateFactory.m; sourceTree = "<group>"; };
+		CEEEAA5614D4A64F00993544 /* DownloadsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadsArrayController.h; sourceTree = "<group>"; };
+		CEEEAA5714D4A64F00993544 /* DownloadsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadsArrayController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +347,7 @@
 		CE92860114B38FE700FE35EB /* Gui */ = {
 			isa = PBXGroup;
 			children = (
+				CEEEA9F814CE07C000993544 /* Progress Idication */,
 				CE31F84A14CB164600B13569 /* Account Options */,
 				CE31F84914CB162600B13569 /* General Options */,
 				CE92859514B3874900FE35EB /* OptionsWindow.xib */,
@@ -422,6 +432,19 @@
 				CEEAC18714B4E27E00EAA1FD /* ContentAdapter.m */,
 			);
 			name = "Content Download";
+			sourceTree = "<group>";
+		};
+		CEEEA9F814CE07C000993544 /* Progress Idication */ = {
+			isa = PBXGroup;
+			children = (
+				CEEEAA0C14CF242400993544 /* ProgressAsynchronousAdapterDelegate.h */,
+				CEEEAA0D14CF242500993544 /* ProgressAsynchronousAdapterDelegate.m */,
+				CEEEAA0F14CF42DB00993544 /* ProgressAsynchronousAdapterDelegateFactory.h */,
+				CEEEAA1014CF42DB00993544 /* ProgressAsynchronousAdapterDelegateFactory.m */,
+				CEEEAA5614D4A64F00993544 /* DownloadsArrayController.h */,
+				CEEEAA5714D4A64F00993544 /* DownloadsArrayController.m */,
+			);
+			name = "Progress Idication";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,6 +552,9 @@
 				CE28490214C30DE70041C7EC /* FileAttributesHelper.m in Sources */,
 				CE28490514C3149E0041C7EC /* FileAttributesUpdatingAsynchronAdapterDelegate.m in Sources */,
 				CEB41E3614C60B2F002A2FA8 /* GeneralOptionsController.m in Sources */,
+				CEEEAA0E14CF242500993544 /* ProgressAsynchronousAdapterDelegate.m in Sources */,
+				CEEEAA1114CF42DB00993544 /* ProgressAsynchronousAdapterDelegateFactory.m in Sources */,
+				CEEEAA5814D4A65100993544 /* DownloadsArrayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

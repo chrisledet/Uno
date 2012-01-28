@@ -20,13 +20,8 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AuthorizationDetails.h"
 #import "AsynchronousAdapter.h"
 
-@interface SyncWorker : NSObject
-+ (void)syncWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (id)initWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (void)sync;
-
-- (void)addDelegateFactory:(id<AsynchronousAdapterDelegateFactory>)factory;
+@interface ProgressAsynchronousAdapterDelegate : NSObject <AsynchronousAdapterDelegate>
+- (id)initWithProgressentries:(NSArrayController*)progressEntries andObjects:(NSDictionary*)objects;
 @end

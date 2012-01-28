@@ -19,14 +19,9 @@
  * SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import "AuthorizationDetails.h"
-#import "AsynchronousAdapter.h"
+#import <AppKit/AppKit.h>
 
-@interface SyncWorker : NSObject
-+ (void)syncWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (id)initWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (void)sync;
+// the only purpose of the class is to give the NSArrayController in xib-file a name
+@interface DownloadsArrayController : NSArrayController
 
-- (void)addDelegateFactory:(id<AsynchronousAdapterDelegateFactory>)factory;
 @end

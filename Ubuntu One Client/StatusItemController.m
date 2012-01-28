@@ -31,6 +31,7 @@
 }
 
 @synthesize menu = _menu;
+@synthesize progressDelegateFactory = _progressDelegateFactory;
 
 - (void)awakeFromNib {
     NSStatusBar *systemStatusBar = NSStatusBar.systemStatusBar;
@@ -44,13 +45,17 @@
     _statusItem.image = image;
     _statusItem.highlightMode = YES;
     _statusItem.menu = self.menu;
-
 }
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender {
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
     NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];
-    [SyncWorker syncWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
+    // [SyncWorker syncWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
+    
+    SyncWorker *syncWorker = [[SyncWorker alloc] initWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
+
+    [syncWorker addDelegateFactory:_progressDelegateFactory];
+    [syncWorker sync];
 }
 
 - (IBAction)clickedOptionsMenuItem:(NSMenuItem *)sender {

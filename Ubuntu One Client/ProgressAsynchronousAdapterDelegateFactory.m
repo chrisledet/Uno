@@ -19,14 +19,15 @@
  * SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import "AuthorizationDetails.h"
-#import "AsynchronousAdapter.h"
+#import "ProgressAsynchronousAdapterDelegateFactory.h"
+#import "ProgressAsynchronousAdapterDelegate.h"
 
-@interface SyncWorker : NSObject
-+ (void)syncWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (id)initWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (void)sync;
+@implementation ProgressAsynchronousAdapterDelegateFactory
+@synthesize progressEntries = _progressEntries;
 
-- (void)addDelegateFactory:(id<AsynchronousAdapterDelegateFactory>)factory;
+- (id<AsynchronousAdapterDelegate>)createWithObjects:(NSDictionary*)objects {
+    ProgressAsynchronousAdapterDelegate *delegate = [[ProgressAsynchronousAdapterDelegate alloc] initWithProgressentries:_progressEntries andObjects:objects];
+    
+    return delegate;
+}
 @end

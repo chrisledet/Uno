@@ -22,9 +22,11 @@
 #import <Foundation/Foundation.h>
 #import "UserDetails.h"
 #import "OptionsWindowController.h"
+#import "ProgressAsynchronousAdapterDelegateFactory.h"
 
 @interface StatusItemController : NSObject
 @property(weak) IBOutlet NSMenu *menu;
+@property(weak) IBOutlet ProgressAsynchronousAdapterDelegateFactory *progressDelegateFactory;
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender;
 - (IBAction)clickedOptionsMenuItem:(NSMenuItem *)sender;

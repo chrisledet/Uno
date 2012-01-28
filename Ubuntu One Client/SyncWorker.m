@@ -49,6 +49,8 @@
     NSString *_absoluteRootPath;
     AuthorizationDetails *_authorizationDetails;
     NSOperationQueue *_operationQueue;
+    
+    NSMutableArray *_delegateFactories;
 }
 
 + (void)syncWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails {
@@ -76,6 +78,16 @@
 
 #pragma mark -
 #pragma mark other methods
+- (void)addDelegateFactory:(id<AsynchronousAdapterDelegateFactory>)factory {
+    NSAssert(factory, @"factory must not be null.");
+
+    if (!_delegateFactories) {
+        _delegateFactories = [NSMutableArray array];
+    }
+
+    [_delegateFactories addObject:factory];
+}
+
 - (void)sync {
     UserDetails *userDetails = [UserDetailsAdapter requestWithAuthorizationDetails:_authorizationDetails];
     [self syncRemoteDirectoryRecursively:userDetails.rootNodePath];
@@ -193,7 +205,19 @@
 
     FileWritingAsynchronousAdapterDelegate *fileWritingDelegate = [[FileWritingAsynchronousAdapterDelegate alloc] initWithAbsolutePath:path andNodeDetails:nodeDetails];    
 
-    NSArray *delegates = [NSArray arrayWithObjects:fileWritingDelegate, nil];
+    NSMutableArray *delegates = [NSMutableArray arrayWithObject:fileWritingDelegate];
+    
+    NSDictionary *delegateObjects = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                     path.lastPathComponent, @"filename", 
+                                     nodeDetails.size, @"filesize",
+                                     nil];
+    
+    if (_delegateFactories) {
+        [_delegateFactories enumerateObjectsUsingBlock:^(id<AsynchronousAdapterDelegateFactory> factory, NSUInteger idx, BOOL *stop) {
+            [delegates addObject:[factory createWithObjects:delegateObjects]];
+        }];
+    }
+
     AsynchronousAdapter *adapter = [ContentAdapter adapterWithContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:delegates];
 
     NSOperation *operation = [AsynchronousAdapterOperation adapterOperationWithAsynchronousAdapter:adapter];
@@ -203,13 +227,13 @@
 - (void)upload:(NSString*)absolutePath toDirectory:(NodeDetails*)nodeDetails {
     NSAssert(absolutePath, @"absolutePath must not be null.");
     NSAssert(nodeDetails, @"nodeDetails must not be null.");
-    
+
     NSLog(@"uploading \"%@\" to \"%@\"", absolutePath, nodeDetails.resourcePath);
-    
-    FileAttributesUpdatingAsynchronAdapterDelegate *delegate = [[FileAttributesUpdatingAsynchronAdapterDelegate alloc] initWithAbsolutePath:absolutePath];    
-    
+
+    FileAttributesUpdatingAsynchronAdapterDelegate *delegate = [[FileAttributesUpdatingAsynchronAdapterDelegate alloc] initWithAbsolutePath:absolutePath];
+
     ContentUploadAdapter *adapter = [ContentUploadAdapter adapterWithAbsolutePath:absolutePath directoryContentPath:nodeDetails.contentPath authorizationDetails:_authorizationDetails andDelegates:[NSArray arrayWithObject:delegate]];
-    
+
     NSOperation *operation = [AsynchronousAdapterOperation adapterOperationWithAsynchronousAdapter:adapter];
     [_operationQueue addOperation:operation];
 }

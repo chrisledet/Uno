@@ -19,14 +19,8 @@
  * SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import "AuthorizationDetails.h"
-#import "AsynchronousAdapter.h"
+#import "DownloadsArrayController.h"
 
-@interface SyncWorker : NSObject
-+ (void)syncWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (id)initWithAbsoluteRootPath:(NSString*)path andAuthorizationDetails:(AuthorizationDetails*)authorizationDetails;
-- (void)sync;
+@implementation DownloadsArrayController
 
-- (void)addDelegateFactory:(id<AsynchronousAdapterDelegateFactory>)factory;
 @end
