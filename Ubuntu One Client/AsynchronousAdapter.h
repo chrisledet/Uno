@@ -28,6 +28,10 @@
 - (void)didFinishLoading;
 @end
 
+@protocol AsynchronousAdapterDelegateFactory
+- (id<AsynchronousAdapterDelegate>)createWithObjects:(NSDictionary*)objects;
+@end
+
 @interface AsynchronousAdapter : AbstractAdapter <NSURLConnectionDelegate>
 - (id)initWithUrl:(NSString*)url authorizationDetails:(AuthorizationDetails*)authorizationDetails andDelegates:(NSArray*)delegates;
 
