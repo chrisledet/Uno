@@ -27,10 +27,14 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright (C) 2012 Yevgeniy Melnichuk &lt;yevgeniy.melnichuk@googlemail.com&gt;</string>
+	<string>Copyright (C) 2012 Yevgeniy Melnichuk, Chris Ledet</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>CFBundleDisplayName</key>
+	<string>Application is agent (UIElement)</string>
 </dict>
 </plist>
