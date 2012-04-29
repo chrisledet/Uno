@@ -55,6 +55,7 @@
 		839323B5154DAF68002DF951 /* SyncWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932390154DAF68002DF951 /* SyncWorker.m */; };
 		839323B6154DAF68002DF951 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932392154DAF68002DF951 /* UserDetails.m */; };
 		839323B7154DAF68002DF951 /* UserDetailsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932394154DAF68002DF951 /* UserDetailsAdapter.m */; };
+		839323BD154DB459002DF951 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 839323BC154DB459002DF951 /* main.m */; };
 		CE92853B14B3815400FE35EB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE92853A14B3815400FE35EB /* Cocoa.framework */; };
 		CE9285F814B3890100FE35EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9285F714B3890100FE35EB /* Security.framework */; };
 /* End PBXBuildFile section */
@@ -109,7 +110,6 @@
 		8393235E154DAF68002DF951 /* UserDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsController.m; sourceTree = "<group>"; };
 		83932360154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		83932362154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83932364154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/main.m; sourceTree = "<group>"; };
 		83932366154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		83932368154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = en; path = en.lproj/u1.icns; sourceTree = "<group>"; };
 		8393236A154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = "en.lproj/UbuntuOne-Info.plist"; sourceTree = "<group>"; };
@@ -153,6 +153,7 @@
 		83932392154DAF68002DF951 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
 		83932393154DAF68002DF951 /* UserDetailsAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailsAdapter.h; sourceTree = "<group>"; };
 		83932394154DAF68002DF951 /* UserDetailsAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsAdapter.m; sourceTree = "<group>"; };
+		839323BC154DB459002DF951 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE92853614B3815400FE35EB /* UbuntuOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UbuntuOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE92853A14B3815400FE35EB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CE92853D14B3815400FE35EB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -311,9 +312,9 @@
 		839323B8154DAF86002DF951 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				839323BC154DB459002DF951 /* main.m */,
 				8393235F154DAF68002DF951 /* Credits.rtf */,
 				83932361154DAF68002DF951 /* InfoPlist.strings */,
-				83932363154DAF68002DF951 /* main.m */,
 				83932365154DAF68002DF951 /* MainMenu.xib */,
 				83932367154DAF68002DF951 /* u1.icns */,
 				83932369154DAF68002DF951 /* UbuntuOne-Info.plist */,
@@ -469,6 +470,7 @@
 				839323B5154DAF68002DF951 /* SyncWorker.m in Sources */,
 				839323B6154DAF68002DF951 /* UserDetails.m in Sources */,
 				839323B7154DAF68002DF951 /* UserDetailsAdapter.m in Sources */,
+				839323BD154DB459002DF951 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,14 +491,6 @@
 				83932362154DAF68002DF951 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		83932363154DAF68002DF951 /* main.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83932364154DAF68002DF951 /* en */,
-			);
-			name = main.m;
 			sourceTree = "<group>";
 		};
 		83932365154DAF68002DF951 /* MainMenu.xib */ = {
