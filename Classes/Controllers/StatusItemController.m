@@ -24,16 +24,12 @@
 #import "SyncWorker.h"
 #import "Constants.h"
 
-@implementation StatusItemController {
-@private
-    NSStatusItem *_statusItem;
-    OptionsWindowController *_optionsWindowController;
-}
+@implementation StatusItemController
 
-@synthesize menu = _menu;
-@synthesize progressDelegateFactory = _progressDelegateFactory;
+@synthesize menu, progressDelegateFactory = _progressDelegateFactory;
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     NSStatusBar *systemStatusBar = NSStatusBar.systemStatusBar;
 
     NSString *iconPath =[[NSBundle mainBundle] pathForImageResource:@"u1"];
@@ -41,17 +37,16 @@
     image.scalesWhenResized = YES;
     image.size = NSMakeSize(systemStatusBar.thickness - 1, systemStatusBar.thickness - 1);
 
-    _statusItem = [systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
-    _statusItem.image = image;
-    _statusItem.highlightMode = YES;
-    _statusItem.menu = self.menu;
+    statusItem = [systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
+    statusItem.image = image;
+    statusItem.highlightMode = YES;
+    statusItem.menu = self.menu;
 }
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender {
-    AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
-    NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];
-    // [SyncWorker syncWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
     
+    AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
+    NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];    
     SyncWorker *syncWorker = [[SyncWorker alloc] initWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
 
     [syncWorker addDelegateFactory:_progressDelegateFactory];
@@ -59,15 +54,23 @@
 }
 
 - (IBAction)clickedOptionsMenuItem:(NSMenuItem *)sender {
-    if (!_optionsWindowController) {
-        _optionsWindowController = [[OptionsWindowController alloc] initWithContentFromNib];
+    if (!optionsWindowController) {
+        optionsWindowController = [[OptionsWindowController alloc] initWithContentFromNib];
     }
     
-    [_optionsWindowController.window makeKeyAndOrderFront:self];
+    [optionsWindowController.window center];
+    [optionsWindowController.window makeKeyAndOrderFront:self];
 }
 
 - (IBAction)clickedBuyMoreStorageMenuItem:(NSMenuItem *)sender
 {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:kBuyMoreStorageURLString]];
 }
+
+- (IBAction)clickedOpenLocationMenuItem:(NSMenuItem *)sender
+{
+     NSString* path = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];   
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:path]];
+}
+
 @end

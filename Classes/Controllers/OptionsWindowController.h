@@ -24,11 +24,13 @@
 #import "AuthorizationDetailsAdapter.h"
 
 @interface OptionsWindowController : NSWindowController <AuthorizationDetailsAdapterDelegate>
-@property (weak) IBOutlet NSTextField *usernameTextfield;
-@property (weak) IBOutlet NSSecureTextField *passwordTextfield;
 
-@property (weak) IBOutlet NSToolbarItem *accountToolbarItem;
-@property (strong) IBOutlet NSWindow *loginWindow;
+@property (strong) IBOutlet NSToolbar* toolbar;
+@property (weak)   IBOutlet NSTextField* usernameTextfield;
+@property (weak)   IBOutlet NSSecureTextField* passwordTextfield;
+@property (weak)   IBOutlet NSToolbarItem*accountToolbarItem;
+@property (weak)   IBOutlet NSToolbarItem* generalToolbarItem;
+@property (strong) IBOutlet NSWindow* loginWindow;
 
 - (id)initWithContentFromNib;
 

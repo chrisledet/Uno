@@ -38,7 +38,6 @@
     
     NSString *defaultLocalFolder = [@"~/Ubuntu One" stringByExpandingTildeInPath];
     [defaultValues setObject:defaultLocalFolder forKey:kLocalFolder];
-    [defaultValues setObject:[NSArray arrayWithObject:defaultLocalFolder] forKey:kCachedLocalFolders];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }

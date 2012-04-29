@@ -24,12 +24,17 @@
 #import "OptionsWindowController.h"
 #import "ProgressAsynchronousAdapterDelegateFactory.h"
 
-@interface StatusItemController : NSObject
+@interface StatusItemController : NSObject {
+    NSStatusItem* statusItem;
+    OptionsWindowController* optionsWindowController;
+}
+
 @property(weak) IBOutlet NSMenu *menu;
 @property(weak) IBOutlet ProgressAsynchronousAdapterDelegateFactory *progressDelegateFactory;
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender;
 - (IBAction)clickedOptionsMenuItem:(NSMenuItem *)sender;
 - (IBAction)clickedBuyMoreStorageMenuItem:(NSMenuItem *)sender;
+- (IBAction)clickedOpenLocationMenuItem:(NSMenuItem *)sender;
 
 @end

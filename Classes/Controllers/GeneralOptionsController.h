@@ -1,7 +1,12 @@
 #import <Cocoa/Cocoa.h>
 
-@interface GeneralOptionsController : NSViewController
+@interface GeneralOptionsController : NSViewController {
+    NSPopUpButton* locationPopUpButton;
+}
 
-- (IBAction)clickedChooseButton:(id)sender;
+@property (strong, nonatomic) IBOutlet NSPopUpButton* locationPopUpButton;
+
+- (IBAction)clickedSelectLocationButton:(id)sender;
 - (id)initWithContentFromNib;
+
 @end

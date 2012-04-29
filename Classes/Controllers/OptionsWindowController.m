@@ -34,18 +34,12 @@
     GeneralOptionsController *_generalOptionsController;
 }
 
-@synthesize loginWindow;
-@synthesize usernameTextfield;
-@synthesize passwordTextfield;
-@synthesize accountToolbarItem;
+@synthesize loginWindow, usernameTextfield, passwordTextfield, generalToolbarItem, accountToolbarItem, toolbar;
 
-- (void)refreshAccountTab {
+- (void)refreshAccountTab
+{
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
     if (authorizationDetails) {
-        if (!_userDetailsController) {
-            _userDetailsController = [[UserDetailsController alloc] initWithContentFromNib];
-        }
-        
         [self setContentViewAndResiize:_userDetailsController.view];
         [_userDetailsController refreshUserDetails];
     } else {
@@ -53,34 +47,48 @@
     }
 }
 
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
     [sheet orderOut:self];
 }
 
-- (void)setContentViewAndResiize:(NSView*)view {
+- (void)setContentViewAndResiize:(NSView*)view
+{
     NSWindow *window = self.window;
     NSRect frame = view.frame;
-    NSRect newFrame = [window frameRectForContentRect:frame];
-    newFrame.origin = window.frame.origin;
+//    NSRect newFrame = [window frameRectForContentRect:frame];
+//    newFrame.origin = window.frame.origin;
 
     view.frame = NSMakeRect(0, 0, frame.size.width, frame.size.height);
 
-    [window setFrame:newFrame display:YES animate:YES];
+//    [window setFrame:newFrame display:YES animate:YES];
     [window.contentView setSubviews:[NSArray arrayWithObject:view]];
 }
 
-- (id)initWithContentFromNib {
+- (id)initWithContentFromNib
+{
     self = [super initWithWindowNibName:@"OptionsWindow"];
     if (self) {
-        // ...
+        
+        if (!_generalOptionsController) {
+            _generalOptionsController = [[GeneralOptionsController alloc] initWithContentFromNib];
+        }
+        
+        if (!_userDetailsController) {
+            _userDetailsController = [[UserDetailsController alloc] initWithContentFromNib];
+        }
     }
 
     return self;
 }
 
-- (void)windowDidLoad {
-    [self refreshAccountTab];
-    // [super windowDidLoad];
+- (void)windowDidLoad
+{
+    // Show General options view and hightlight it on Tool Bar
+    if (toolbar) {
+        [toolbar setSelectedItemIdentifier:generalToolbarItem.itemIdentifier];
+    }
+    [self setContentViewAndResiize:_generalOptionsController.view];
 }
 
 - (void)awakeFromNib {
@@ -94,10 +102,6 @@
 }
 
 - (IBAction)clickedGeneralToolbarItem:(NSToolbarItem *)sender {
-    if (!_generalOptionsController) {
-        _generalOptionsController = [[GeneralOptionsController alloc] initWithContentFromNib];
-    }
-    
     [self setContentViewAndResiize:_generalOptionsController.view];
 }
 
@@ -117,14 +121,16 @@
 
 #pragma mark -
 #pragma mark AuthorizationDetailsAdapterDelegate
-- (void)didFinishWithAuthorizationDetails:(AuthorizationDetails*)authorizationDetails {
+- (void)didFinishWithAuthorizationDetails:(AuthorizationDetails*)authorizationDetails
+{
     [authorizationDetails writeToApplicationSupportDirectory];
 
     [NSApp endSheet:self.loginWindow];
     [self refreshAccountTab];
 }
 
-- (void)didFailWithError:(NSError*)error {
+- (void)didFailWithError:(NSError*)error
+{
     NSLog(@"%s with error: %@", __PRETTY_FUNCTION__, error);
     
     [NSApp endSheet:self.loginWindow];
