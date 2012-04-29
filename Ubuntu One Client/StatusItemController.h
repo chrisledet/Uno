@@ -30,4 +30,6 @@
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender;
 - (IBAction)clickedOptionsMenuItem:(NSMenuItem *)sender;
+- (IBAction)clickedBuyMoreStorageMenuItem:(NSMenuItem *)sender;
+
 @end

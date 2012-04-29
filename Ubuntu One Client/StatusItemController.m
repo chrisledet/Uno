@@ -65,4 +65,9 @@
     
     [_optionsWindowController.window makeKeyAndOrderFront:self];
 }
+
+- (IBAction)clickedBuyMoreStorageMenuItem:(NSMenuItem *)sender
+{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:kBuyMoreStorageURLString]];
+}
 @end
