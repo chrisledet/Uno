@@ -1,21 +1,15 @@
-about
---------
-[Ubuntu One](http://one.ubuntu.com/) Cleint for the Mac OS.
+# UbuntuOne.app
 
-requirements
---------
+[Ubuntu One](http://one.ubuntu.com/) client for OS X.
+
+### Requirements
+
 Mac OS 10.7 (Lion)
 
-download
---------
-[Ubuntu One Client.zip](https://github.com/downloads/yevmel/Ubuntu-One-Client/Ubuntu%20One%20Client.app.zip)
-changelog
---------
-v.0.1:
+### Download
 
-* features:
- * sync local folder _~/Ubuntu One_ with the Ubuntu One manually ("Sync Now" menu item).
- * display amount of available/used space.
-* bugfixes:
- * syncing does not block the main thread.
- * syncing does not try to download/upload all files at once. Downloads/Uploads are queued in a [NSOperationQueue](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/NSOperationQueue_class/Reference/Reference.html).
+[Ubuntu One Client.zip](https://github.com/downloads/yevmel/Ubuntu-One-Client/Ubuntu%20One%20Client.app.zip)
+
+
+### License
+UbuntuOne.app is released under the MIT License.

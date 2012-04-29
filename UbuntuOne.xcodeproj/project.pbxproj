@@ -71,14 +71,14 @@
 		CE28490314C3149E0041C7EC /* FileAttributesUpdatingAsynchronAdapterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttributesUpdatingAsynchronAdapterDelegate.h; sourceTree = "<group>"; };
 		CE28490414C3149E0041C7EC /* FileAttributesUpdatingAsynchronAdapterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAttributesUpdatingAsynchronAdapterDelegate.m; sourceTree = "<group>"; };
 		CE31F84B14CB193900B13569 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		CE92853614B3815400FE35EB /* Ubuntu One Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ubuntu One Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE92853614B3815400FE35EB /* UbuntuOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UbuntuOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE92853A14B3815400FE35EB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CE92853D14B3815400FE35EB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		CE92853E14B3815400FE35EB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CE92853F14B3815400FE35EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CE92854214B3815400FE35EB /* Ubuntu One Client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ubuntu One Client-Info.plist"; sourceTree = "<group>"; };
+		CE92854214B3815400FE35EB /* UbuntuOne-Info.plist */ = {isa = PBXFileReference; path = "UbuntuOne-Info.plist"; sourceTree = "<group>"; };
 		CE92854414B3815400FE35EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CE92854814B3815400FE35EB /* Ubuntu One Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ubuntu One Client-Prefix.pch"; sourceTree = "<group>"; };
+		CE92854814B3815400FE35EB /* UbuntuOne-Prefix.pch */ = {isa = PBXFileReference; path = "UbuntuOne-Prefix.pch"; sourceTree = "<group>"; };
 		CE92854A14B3815400FE35EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		CE92855814B3815500FE35EB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE92857214B3874700FE35EB /* AbstractAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractAdapter.h; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9285CC14B3877A00FE35EB /* OAuthConsumer */,
-				CE92854014B3815400FE35EB /* Ubuntu One Client */,
+				CE92854014B3815400FE35EB /* UbuntuOne */,
 				CE92853914B3815400FE35EB /* Frameworks */,
 				CE92853714B3815400FE35EB /* Products */,
 			);
@@ -216,7 +216,7 @@
 		CE92853714B3815400FE35EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE92853614B3815400FE35EB /* Ubuntu One Client.app */,
+				CE92853614B3815400FE35EB /* UbuntuOne.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		CE92854014B3815400FE35EB /* Ubuntu One Client */ = {
+		CE92854014B3815400FE35EB /* UbuntuOne */ = {
 			isa = PBXGroup;
 			children = (
 				CE9285FF14B38F4400FE35EB /* Categories */,
@@ -251,6 +251,7 @@
 				CE92854114B3815400FE35EB /* Supporting Files */,
 				CEEAC17014B394D300EAA1FD /* u1.icns */,
 			);
+			name = UbuntuOne;
 			path = "Ubuntu One Client";
 			sourceTree = "<group>";
 		};
@@ -258,9 +259,9 @@
 			isa = PBXGroup;
 			children = (
 				CE9285FB14B38B0B00FE35EB /* MainMenu.xib */,
-				CE92854214B3815400FE35EB /* Ubuntu One Client-Info.plist */,
+				CE92854214B3815400FE35EB /* UbuntuOne-Info.plist */,
 				CE92854314B3815400FE35EB /* InfoPlist.strings */,
-				CE92854814B3815400FE35EB /* Ubuntu One Client-Prefix.pch */,
+				CE92854814B3815400FE35EB /* UbuntuOne-Prefix.pch */,
 				CE9285F914B38A1C00FE35EB /* main.m */,
 				CE92854914B3815400FE35EB /* Credits.rtf */,
 			);
@@ -450,9 +451,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE92853514B3815400FE35EB /* Ubuntu One Client */ = {
+		CE92853514B3815400FE35EB /* UbuntuOne */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE92856814B3815500FE35EB /* Build configuration list for PBXNativeTarget "Ubuntu One Client" */;
+			buildConfigurationList = CE92856814B3815500FE35EB /* Build configuration list for PBXNativeTarget "UbuntuOne" */;
 			buildPhases = (
 				CE92853214B3815400FE35EB /* Sources */,
 				CE92853314B3815400FE35EB /* Frameworks */,
@@ -462,9 +463,9 @@
 			);
 			dependencies = (
 			);
-			name = "Ubuntu One Client";
+			name = UbuntuOne;
 			productName = "Ubuntu One Client";
-			productReference = CE92853614B3815400FE35EB /* Ubuntu One Client.app */;
+			productReference = CE92853614B3815400FE35EB /* UbuntuOne.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -475,7 +476,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = CE92853014B3815400FE35EB /* Build configuration list for PBXProject "Ubuntu One Client" */;
+			buildConfigurationList = CE92853014B3815400FE35EB /* Build configuration list for PBXProject "UbuntuOne" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -487,7 +488,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE92853514B3815400FE35EB /* Ubuntu One Client */,
+				CE92853514B3815400FE35EB /* UbuntuOne */,
 			);
 		};
 /* End PBXProject section */
@@ -639,9 +640,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ubuntu One Client/Ubuntu One Client-Prefix.pch";
-				INFOPLIST_FILE = "Ubuntu One Client/Ubuntu One Client-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Ubuntu One Client/UbuntuOne-Prefix.pch";
+				INFOPLIST_FILE = "Ubuntu One Client/UbuntuOne-Info.plist";
+				PRODUCT_NAME = UbuntuOne;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -650,9 +651,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ubuntu One Client/Ubuntu One Client-Prefix.pch";
-				INFOPLIST_FILE = "Ubuntu One Client/Ubuntu One Client-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Ubuntu One Client/UbuntuOne-Prefix.pch";
+				INFOPLIST_FILE = "Ubuntu One Client/UbuntuOne-Info.plist";
+				PRODUCT_NAME = UbuntuOne;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -660,7 +661,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE92853014B3815400FE35EB /* Build configuration list for PBXProject "Ubuntu One Client" */ = {
+		CE92853014B3815400FE35EB /* Build configuration list for PBXProject "UbuntuOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE92856614B3815500FE35EB /* Debug */,
@@ -669,7 +670,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE92856814B3815500FE35EB /* Build configuration list for PBXNativeTarget "Ubuntu One Client" */ = {
+		CE92856814B3815500FE35EB /* Build configuration list for PBXNativeTarget "UbuntuOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE92856914B3815500FE35EB /* Debug */,

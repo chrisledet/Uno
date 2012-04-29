@@ -57,7 +57,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="NSMenuItem" id="694149608">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle">Ubuntu One Client</string>
+						<string key="NSTitle">UbuntuOne</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<object class="NSCustomResource" key="NSOnImage" id="229763992">
@@ -70,7 +70,7 @@
 						</object>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
-							<string key="NSTitle">Ubuntu One Client</string>
+							<string key="NSTitle">UbuntuOne</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="238522557">
@@ -744,7 +744,7 @@
 				<string key="NSClassName">StatusItemController</string>
 			</object>
 			<object class="NSCustomView" id="947469567">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1060,7 +1060,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{382, 277}</string>
-				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="313763702"/>
 				<string key="NSReuseIdentifierKey">_NS:1192</string>
 				<string key="NSClassName">NSView</string>
@@ -1079,10 +1078,9 @@
 			</object>
 			<object class="NSCollectionViewItem" id="249342369"/>
 			<object class="NSView" id="838664428">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
 				<string key="NSFrameSize">{100, 100}</string>
-				<reference key="NSSuperview"/>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
