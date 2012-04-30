@@ -1,4 +1,4 @@
-/* Copyright (C) 2012 Yevgeniy Melnichuk <yevgeniy.melnichuk@googlemail.com>
+/* Copyright (C) 2012 Yevgeniy Melnichuk, Chris Ledet
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -31,22 +31,25 @@
 @synthesize usedTextField;
 @synthesize percentageIndicator;
 
-- (id)initWithContentFromNib {
+- (id)initWithContentFromNib
+{
     self = [super initWithNibName:@"UserDetails" bundle:nil];
     return self;
 }
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     
     usedTextField.formatter = formatter;
     availableTextField.formatter = formatter;
     
-    percentageIndicator.maxValue = 100; // 100%
+    percentageIndicator.maxValue = 100; // 100 %
 }
 
-- (void)refreshUserDetails {
+- (void)refreshUserDetails
+{
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
     
     UserDetails *userDetails = [UserDetailsAdapter requestWithAuthorizationDetails:authorizationDetails];
