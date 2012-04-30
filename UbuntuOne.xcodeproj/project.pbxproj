@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83723693154F43BF00C41ACE /* NSNumber+numberToHumanSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 83723692154F43BF00C41ACE /* NSNumber+numberToHumanSize.m */; };
 		8393233B154DADDF002DF951 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 8393231F154DADDF002DF951 /* Base64Transcoder.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8393233C154DADDF002DF951 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932322154DADDF002DF951 /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8393233D154DADDF002DF951 /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932324154DADDF002DF951 /* NSURL+Base.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -61,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83723691154F43BF00C41ACE /* NSNumber+numberToHumanSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+numberToHumanSize.h"; sourceTree = "<group>"; };
+		83723692154F43BF00C41ACE /* NSNumber+numberToHumanSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+numberToHumanSize.m"; sourceTree = "<group>"; };
 		8393231F154DADDF002DF951 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		83932320154DADDF002DF951 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
 		83932321154DADDF002DF951 /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				8393234E154DAF68002DF951 /* NSBundle+ApplicationName.m */,
 				8393234F154DAF68002DF951 /* NSFileManager+ApplicationSupportDirectory.h */,
 				83932350154DAF68002DF951 /* NSFileManager+ApplicationSupportDirectory.m */,
+				83723691154F43BF00C41ACE /* NSNumber+numberToHumanSize.h */,
+				83723692154F43BF00C41ACE /* NSNumber+numberToHumanSize.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				839323B6154DAF68002DF951 /* UserDetails.m in Sources */,
 				839323B7154DAF68002DF951 /* UserDetailsAdapter.m in Sources */,
 				839323BD154DB459002DF951 /* main.m in Sources */,
+				83723693154F43BF00C41ACE /* NSNumber+numberToHumanSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

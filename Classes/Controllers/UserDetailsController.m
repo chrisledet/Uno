@@ -23,6 +23,7 @@
 #import "AuthorizationDetails.h"
 #import "UserDetailsAdapter.h"
 #import "UserDetails.h"
+#import "NSNumber+numberToHumanSize.h"
 
 @implementation UserDetailsController
 @synthesize userTextField;
@@ -41,21 +42,24 @@
     
     usedTextField.formatter = formatter;
     availableTextField.formatter = formatter;
+    
+    percentageIndicator.maxValue = 100; // 100%
 }
 
 - (void)refreshUserDetails {
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
-    UserDetails *userDetails = [UserDetailsAdapter requestWithAuthorizationDetails:authorizationDetails];
     
+    UserDetails *userDetails = [UserDetailsAdapter requestWithAuthorizationDetails:authorizationDetails];
     userTextField.stringValue = userDetails.name;
     
-    NSNumber *available = userDetails.bytesAvailable;
-    NSNumber *used = userDetails.bytesInUse;
-    double p = 100.0 / [available doubleValue] * [used doubleValue];
+    NSNumber *bytesAvailabe = userDetails.bytesAvailable;
+    NSNumber *bytesUsed     = userDetails.bytesInUse;
+    double perecentUsed = 100.0 / [bytesAvailabe doubleValue] * [bytesUsed doubleValue];
     
-    availableTextField.objectValue = available;
-    usedTextField.objectValue = used;
-    percentageIndicator.doubleValue = p;
+    usedTextField.stringValue      = [NSString stringWithFormat:@"%@ (%.2f%s)", [bytesUsed numberToHumanSize], perecentUsed, "%"];
+    availableTextField.stringValue = [bytesAvailabe numberToHumanSize];
+    
+    percentageIndicator.doubleValue = perecentUsed;
 }
 
 @end
