@@ -1,4 +1,4 @@
-/* Copyright (C) 2012 Yevgeniy Melnichuk <yevgeniy.melnichuk@googlemail.com>
+/* Copyright (c) 2012 Yevgeniy Melnichuk, Chris Ledet
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in

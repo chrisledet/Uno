@@ -1,4 +1,4 @@
-/* Copyright (C) 2012 Yevgeniy Melnichuk, Chris Ledet
+/* Copyright (c) 2012 Yevgeniy Melnichuk, Chris Ledet
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -18,6 +18,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 
 #import "UserDetailsController.h"
 #import "AuthorizationDetails.h"
