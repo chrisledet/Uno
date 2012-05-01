@@ -45,8 +45,6 @@
 + (void)setColorMenuIconSwitch:(BOOL)state
 {
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:state] forKey:kMenuIconColored];
-// DEBUG   
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kMenuIconColored]);
 }
 
 @end
