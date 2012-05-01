@@ -21,8 +21,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+    NSStatusItem* statusMenuItem;
+}
 
 @property (assign) IBOutlet NSWindow *window;
+
+- (NSStatusItem*)statusMenuItem;
+- (void)setStatusMenuItemIcon:(NSString*)iconName;
 
 @end

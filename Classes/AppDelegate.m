@@ -26,23 +26,57 @@
 #import "AsynchronousAdapterOperation.h"
 #import "FileWritingAsynchronousAdapterDelegate.h"
 #import "ContentAdapter.h"
-
 #import "ContentUploadAdapter.h"
 #import "FileAttributesUpdatingAsynchronAdapterDelegate.h"
+#import "UserSettings.h"
+
+//@interface AppDelegate(Private)
+//- (void) setStatusMenuItem;
+//@end
 
 @implementation AppDelegate
 @synthesize window = _window;
 
-- (void)setupDefaultSettings {
+- (void)setupDefaultSettings
+{
     NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
     
+    // Default sync location
     NSString *defaultLocalFolder = [@"~/Ubuntu One" stringByExpandingTildeInPath];
     [defaultValues setObject:defaultLocalFolder forKey:kLocalFolder];
     
+    // Default menu icon color
+    [defaultValues setObject:[NSNumber numberWithBool:YES] forKey:kMenuIconColored];
+    
+    // Set defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
     [self setupDefaultSettings];
 }
+
+- (NSStatusItem*)statusMenuItem
+{
+    if (!statusMenuItem) {
+        statusMenuItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
+        statusMenuItem.highlightMode = YES;
+        
+        NSString* imageName = [UserSettings colorMenuIconSwitch] ? kColorMenuIconName : kBlackMenuIconName;
+        [self setStatusMenuItemIcon:imageName];
+    }
+    
+    return statusMenuItem;
+}
+
+- (void)setStatusMenuItemIcon:(NSString*)imageName
+{
+    NSStatusBar* systemStatusBar = NSStatusBar.systemStatusBar;
+    NSImage* menuImage = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:imageName]];
+    menuImage.scalesWhenResized = YES;
+    menuImage.size = NSMakeSize(systemStatusBar.thickness - 1, systemStatusBar.thickness - 1);
+    statusMenuItem.image = menuImage;
+}
+
 @end

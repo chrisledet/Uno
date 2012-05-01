@@ -20,18 +20,13 @@
  */
 
 
-@interface GeneralOptionsController : NSViewController {
-    NSPopUpButton* locationPopUpButton;
-    NSTextField* versionTextField;
-    NSButton* colorMenuIconButton;
-}
+#import <Foundation/Foundation.h>
 
-@property (strong, nonatomic) IBOutlet NSButton* colorMenuIconButton;
-@property (strong, nonatomic) IBOutlet NSPopUpButton* locationPopUpButton;
-@property (strong, nonatomic) IBOutlet NSTextField* versionTextField;
+@interface UserSettings : NSObject
 
-- (IBAction)clickedSelectLocationButton:(id)sender;
-- (IBAction)clickedColorMenuIconButton:(id)sender;
-- (id)initWithContentFromNib;
++ (NSString*)syncLocation;
++ (void)setSyncLocation:(NSString*)path;
++ (BOOL)colorMenuIconSwitch;
++ (void)setColorMenuIconSwitch:(BOOL)state;
 
 @end

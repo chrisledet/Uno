@@ -20,18 +20,33 @@
  */
 
 
-@interface GeneralOptionsController : NSViewController {
-    NSPopUpButton* locationPopUpButton;
-    NSTextField* versionTextField;
-    NSButton* colorMenuIconButton;
+#import "UserSettings.h"
+
+@implementation UserSettings
+
++ (NSString*)syncLocation
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLocalFolder];
 }
 
-@property (strong, nonatomic) IBOutlet NSButton* colorMenuIconButton;
-@property (strong, nonatomic) IBOutlet NSPopUpButton* locationPopUpButton;
-@property (strong, nonatomic) IBOutlet NSTextField* versionTextField;
++ (void)setSyncLocation:(NSString*)path
+{
+    if (path && [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:nil]) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:path forKey:kLocalFolder];  
+    }
+}
 
-- (IBAction)clickedSelectLocationButton:(id)sender;
-- (IBAction)clickedColorMenuIconButton:(id)sender;
-- (id)initWithContentFromNib;
++ (BOOL)colorMenuIconSwitch
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:kMenuIconColored] boolValue];
+}
+
++ (void)setColorMenuIconSwitch:(BOOL)state
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:state] forKey:kMenuIconColored];
+// DEBUG   
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kMenuIconColored]);
+}
 
 @end

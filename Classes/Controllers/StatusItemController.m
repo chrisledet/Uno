@@ -23,7 +23,8 @@
 #import "StatusItemController.h"
 #import "NSBundle+ApplicationName.h"
 #import "SyncWorker.h"
-#import "Constants.h"
+#import "UserSettings.h"
+#import "AppDelegate.h"
 
 @implementation StatusItemController
 
@@ -31,26 +32,20 @@
 
 - (void)awakeFromNib
 {
-    NSStatusBar *systemStatusBar = NSStatusBar.systemStatusBar;
-
-    NSString *iconPath =[[NSBundle mainBundle] pathForImageResource:@"u1"];
-    NSImage *image = [[NSImage alloc] initWithContentsOfFile:iconPath];
-    image.scalesWhenResized = YES;
-    image.size = NSMakeSize(systemStatusBar.thickness - 1, systemStatusBar.thickness - 1);
-
-    statusItem = [systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
-    statusItem.image = image;
-    statusItem.highlightMode = YES;
+    AppDelegate* appDelegate = (AppDelegate*) [[NSApplication sharedApplication] delegate];
+    statusItem = [appDelegate statusMenuItem];
     statusItem.menu = self.menu;
 }
 
 - (IBAction)clickedSyncNowMenuItem:(NSMenuItem *)sender {
     
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
-    NSString *path = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];    
-    SyncWorker *syncWorker = [[SyncWorker alloc] initWithAbsoluteRootPath:path andAuthorizationDetails:authorizationDetails];
+    
+    SyncWorker *syncWorker = [[SyncWorker alloc] initWithAbsoluteRootPath:[UserSettings syncLocation] andAuthorizationDetails:authorizationDetails];
 
     [syncWorker addDelegateFactory:_progressDelegateFactory];
+    
+    // TODO: Use GCD aync block 
     [syncWorker sync];
 }
 

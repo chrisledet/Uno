@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		836C56B8154F742D0049F1B7 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 836C56B7154F742D0049F1B7 /* UserSettings.m */; };
+		836C56BC154F79620049F1B7 /* u1-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 836C56BA154F79620049F1B7 /* u1-black.png */; };
+		836C56BF154F80DF0049F1B7 /* ul.png in Resources */ = {isa = PBXBuildFile; fileRef = 836C56BD154F80DF0049F1B7 /* ul.png */; };
 		83723693154F43BF00C41ACE /* NSNumber+numberToHumanSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 83723692154F43BF00C41ACE /* NSNumber+numberToHumanSize.m */; };
 		8393233B154DADDF002DF951 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 8393231F154DADDF002DF951 /* Base64Transcoder.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8393233C154DADDF002DF951 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932322154DADDF002DF951 /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -36,7 +39,6 @@
 		839323A0154DAF68002DF951 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8393235F154DAF68002DF951 /* Credits.rtf */; };
 		839323A1154DAF68002DF951 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83932361154DAF68002DF951 /* InfoPlist.strings */; };
 		839323A2154DAF68002DF951 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83932365154DAF68002DF951 /* MainMenu.xib */; };
-		839323A3154DAF68002DF951 /* u1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83932367154DAF68002DF951 /* u1.icns */; };
 		839323A5154DAF68002DF951 /* AbstractAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8393236F154DAF68002DF951 /* AbstractAdapter.m */; };
 		839323A6154DAF68002DF951 /* AsynchronousAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932371154DAF68002DF951 /* AsynchronousAdapter.m */; };
 		839323A7154DAF68002DF951 /* AsynchronousAdapterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83932373154DAF68002DF951 /* AsynchronousAdapterOperation.m */; };
@@ -62,6 +64,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		836C56B6154F742D0049F1B7 /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
+		836C56B7154F742D0049F1B7 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
+		836C56BB154F79620049F1B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/u1-black.png"; sourceTree = "<group>"; };
+		836C56BE154F80DF0049F1B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/ul.png; sourceTree = "<group>"; };
 		83723691154F43BF00C41ACE /* NSNumber+numberToHumanSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+numberToHumanSize.h"; sourceTree = "<group>"; };
 		83723692154F43BF00C41ACE /* NSNumber+numberToHumanSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+numberToHumanSize.m"; sourceTree = "<group>"; };
 		8393231F154DADDF002DF951 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
@@ -114,7 +120,6 @@
 		83932360154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		83932362154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83932366154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		83932368154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = en; path = en.lproj/u1.icns; sourceTree = "<group>"; };
 		8393236A154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = "en.lproj/UbuntuOne-Info.plist"; sourceTree = "<group>"; };
 		8393236C154DAF68002DF951 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = "en.lproj/UbuntuOne-Prefix.pch"; sourceTree = "<group>"; };
 		8393236E154DAF68002DF951 /* AbstractAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractAdapter.h; sourceTree = "<group>"; };
@@ -127,7 +132,7 @@
 		83932375154DAF68002DF951 /* AuthorizationDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationDetails.m; sourceTree = "<group>"; };
 		83932376154DAF68002DF951 /* AuthorizationDetailsAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationDetailsAdapter.h; sourceTree = "<group>"; };
 		83932377154DAF68002DF951 /* AuthorizationDetailsAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationDetailsAdapter.m; sourceTree = "<group>"; };
-		83932378154DAF68002DF951 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		83932378154DAF68002DF951 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Models/Constants.h; sourceTree = "<group>"; };
 		83932379154DAF68002DF951 /* ContentAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentAdapter.h; sourceTree = "<group>"; };
 		8393237A154DAF68002DF951 /* ContentAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentAdapter.m; sourceTree = "<group>"; };
 		8393237B154DAF68002DF951 /* ContentUploadAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentUploadAdapter.h; sourceTree = "<group>"; };
@@ -281,7 +286,6 @@
 				83932375154DAF68002DF951 /* AuthorizationDetails.m */,
 				83932376154DAF68002DF951 /* AuthorizationDetailsAdapter.h */,
 				83932377154DAF68002DF951 /* AuthorizationDetailsAdapter.m */,
-				83932378154DAF68002DF951 /* Constants.h */,
 				83932379154DAF68002DF951 /* ContentAdapter.h */,
 				8393237A154DAF68002DF951 /* ContentAdapter.m */,
 				8393237B154DAF68002DF951 /* ContentUploadAdapter.h */,
@@ -310,6 +314,8 @@
 				83932392154DAF68002DF951 /* UserDetails.m */,
 				83932393154DAF68002DF951 /* UserDetailsAdapter.h */,
 				83932394154DAF68002DF951 /* UserDetailsAdapter.m */,
+				836C56B6154F742D0049F1B7 /* UserSettings.h */,
+				836C56B7154F742D0049F1B7 /* UserSettings.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,11 +323,13 @@
 		839323B8154DAF86002DF951 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83932378154DAF68002DF951 /* Constants.h */,
 				839323BC154DB459002DF951 /* main.m */,
 				8393235F154DAF68002DF951 /* Credits.rtf */,
 				83932361154DAF68002DF951 /* InfoPlist.strings */,
 				83932365154DAF68002DF951 /* MainMenu.xib */,
-				83932367154DAF68002DF951 /* u1.icns */,
+				836C56BD154F80DF0049F1B7 /* ul.png */,
+				836C56BA154F79620049F1B7 /* u1-black.png */,
 				83932369154DAF68002DF951 /* UbuntuOne-Info.plist */,
 				8393236B154DAF68002DF951 /* UbuntuOne-Prefix.pch */,
 			);
@@ -425,7 +433,8 @@
 				839323A0154DAF68002DF951 /* Credits.rtf in Resources */,
 				839323A1154DAF68002DF951 /* InfoPlist.strings in Resources */,
 				839323A2154DAF68002DF951 /* MainMenu.xib in Resources */,
-				839323A3154DAF68002DF951 /* u1.icns in Resources */,
+				836C56BC154F79620049F1B7 /* u1-black.png in Resources */,
+				836C56BF154F80DF0049F1B7 /* ul.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,12 +486,29 @@
 				839323B7154DAF68002DF951 /* UserDetailsAdapter.m in Sources */,
 				839323BD154DB459002DF951 /* main.m in Sources */,
 				83723693154F43BF00C41ACE /* NSNumber+numberToHumanSize.m in Sources */,
+				836C56B8154F742D0049F1B7 /* UserSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		836C56BA154F79620049F1B7 /* u1-black.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				836C56BB154F79620049F1B7 /* en */,
+			);
+			name = "u1-black.png";
+			sourceTree = "<group>";
+		};
+		836C56BD154F80DF0049F1B7 /* ul.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				836C56BE154F80DF0049F1B7 /* en */,
+			);
+			name = ul.png;
+			sourceTree = "<group>";
+		};
 		8393235F154DAF68002DF951 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -505,14 +531,6 @@
 				83932366154DAF68002DF951 /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		83932367154DAF68002DF951 /* u1.icns */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83932368154DAF68002DF951 /* en */,
-			);
-			name = u1.icns;
 			sourceTree = "<group>";
 		};
 		83932369154DAF68002DF951 /* UbuntuOne-Info.plist */ = {

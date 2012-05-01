@@ -21,17 +21,28 @@
 
 
 #import "GeneralOptionsController.h"
+#import "UserSettings.h"
+#import "AppDelegate.h"
 
 @interface GeneralOptionsController(Private)
 - (NSOpenPanel *)setUpOpenPanel;
-- (void)setUbuntuOneDirectoryLocation:(NSString*)path;
 - (void)setUpView;
 - (void)setUpLocationPopOut;
 @end
 
 @implementation GeneralOptionsController
 
-@synthesize locationPopUpButton, versionTextField;
+@synthesize locationPopUpButton, versionTextField, colorMenuIconButton;
+
+- (IBAction)clickedColorMenuIconButton:(id)sender
+{
+    BOOL coloredIcon = colorMenuIconButton.state == NSOnState;
+    [UserSettings setColorMenuIconSwitch:coloredIcon];
+    NSString* imageName = (coloredIcon ? kColorMenuIconName : kBlackMenuIconName);
+    
+    AppDelegate* appDelegate = (AppDelegate*) [[NSApplication sharedApplication] delegate];
+    [appDelegate setStatusMenuItemIcon:imageName];
+}
 
 - (IBAction)clickedSelectLocationButton:(id)sender
 {    
@@ -39,11 +50,10 @@
     
     [openPanel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger returnCode) {
         if (returnCode == NSOKButton) {
+            
             NSURL* selectedDirURL = [openPanel.URLs objectAtIndex:0];
-#if DEBUG
-            NSLog(@"Selected Directory: %@", selectedDirURL.relativeString);
-#endif
-            [self setUbuntuOneDirectoryLocation:[NSString pathWithComponents:selectedDirURL.pathComponents]];
+            [UserSettings setSyncLocation:[NSString pathWithComponents:selectedDirURL.pathComponents]];
+
             [self setUpLocationPopOut];
         }
     }];
@@ -83,17 +93,6 @@
     return openPanel;
 }
 
-- (void)setUbuntuOneDirectoryLocation:(NSString*)dirPath
-{
-    if (dirPath && [[NSFileManager defaultManager] fileExistsAtPath:dirPath isDirectory:nil]) {
-#if DEBUG
-        NSLog(@"Setting new directory: %@", dirPath);
-#endif
-        [[NSUserDefaults standardUserDefaults] setObject:dirPath forKey:kLocalFolder];
-        
-    }
-}
-
 - (void)setUpLocationPopOut
 {
     NSString* location = [[NSUserDefaults standardUserDefaults] stringForKey:kLocalFolder];
@@ -108,6 +107,8 @@
     [self setUpLocationPopOut];
 
     versionTextField.objectValue = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
+    colorMenuIconButton.state = [UserSettings colorMenuIconSwitch];
 }
 
 @end
