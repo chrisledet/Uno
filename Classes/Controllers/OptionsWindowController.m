@@ -25,14 +25,14 @@
 #import "GeneralOptionsController.h"
 
 @interface OptionsWindowController (Private)
-- (void)setContentViewAndResiize:(NSView*)view;
+- (void)setContentView:(NSView*)view;
 - (void)refreshAccountTab;
 @end
 
 @implementation OptionsWindowController{
 @private
-    UserDetailsController *_userDetailsController;
-    GeneralOptionsController *_generalOptionsController;
+    UserDetailsController* userDetailsController;
+    GeneralOptionsController* generalOptionsController;
 }
 
 @synthesize loginWindow, usernameTextfield, passwordTextfield, generalToolbarItem, accountToolbarItem, toolbar;
@@ -41,10 +41,11 @@
 {
     AuthorizationDetails *authorizationDetails = [AuthorizationDetails current];
     if (authorizationDetails) {
-        [self setContentViewAndResiize:_userDetailsController.view];
-        [_userDetailsController refreshUserDetails];
+        [self setContentView:userDetailsController.view];
+        [userDetailsController refreshUserDetails];
     } else {
-        [NSApp beginSheet:loginWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+        [NSApp beginSheet:loginWindow modalForWindow:self.window
+                modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
     }
 }
 
@@ -53,30 +54,21 @@
     [sheet orderOut:self];
 }
 
-- (void)setContentViewAndResiize:(NSView*)view
+- (void)setContentView:(NSView*)view
 {
-    NSWindow *window = self.window;
-    NSRect frame = view.frame;
-//    NSRect newFrame = [window frameRectForContentRect:frame];
-//    newFrame.origin = window.frame.origin;
-
-    view.frame = NSMakeRect(0, 0, frame.size.width, frame.size.height);
-
-//    [window setFrame:newFrame display:YES animate:YES];
-    [window.contentView setSubviews:[NSArray arrayWithObject:view]];
+    [self.window setContentView:view];
 }
 
 - (id)initWithContentFromNib
 {
     self = [super initWithWindowNibName:@"OptionsWindow"];
+
     if (self) {
-        
-        if (!_generalOptionsController) {
-            _generalOptionsController = [[GeneralOptionsController alloc] initWithContentFromNib];
-        }
-        
-        if (!_userDetailsController) {
-            _userDetailsController = [[UserDetailsController alloc] initWithContentFromNib];
+        if (!generalOptionsController) {
+            generalOptionsController = [[GeneralOptionsController alloc] initWithContentFromNib];
+        }        
+        if (!userDetailsController) {
+            userDetailsController = [[UserDetailsController alloc] initWithContentFromNib];
         }
     }
 
@@ -89,7 +81,7 @@
     if (toolbar) {
         [toolbar setSelectedItemIdentifier:generalToolbarItem.itemIdentifier];
     }
-    [self setContentViewAndResiize:_generalOptionsController.view];
+    [self setContentView:generalOptionsController.view];
 }
 
 - (void)awakeFromNib {
@@ -103,7 +95,7 @@
 }
 
 - (IBAction)clickedGeneralToolbarItem:(NSToolbarItem *)sender {
-    [self setContentViewAndResiize:_generalOptionsController.view];
+    [self setContentView:generalOptionsController.view];
 }
 
 #pragma mark -
