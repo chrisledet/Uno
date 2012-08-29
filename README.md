@@ -1,10 +1,10 @@
-# Ubuntu One for Mac
+# Uno
 
 [Ubuntu One](http://one.ubuntu.com/) client for OS X.
 
 ### Requirements
 
-Requires OS X Lion (10.7) and an [Ubuntu One][u1] account.
+Requires OS X Lion (10.7) or later and an [Ubuntu One][u1] account.
 
 ### Installation
 
@@ -21,7 +21,7 @@ Report bugs and feature requests on the [issues][issues] page.
 Released under the MIT License. See the [LICENSE][license] file for more details.
 
 [u1]:https://one.ubuntu.com/
-[license]:https://github.com/chrisledet/Ubuntu-One-Mac/blob/master/LICENSE
-[changelog]:https://github.com/chrisledet/Ubuntu-One-Mac/blob/master/CHANGELOG.md
-[issues]:https://github.com/chrisledet/Ubuntu-One-Mac/issues
-[download]:https://github.com/downloads/chrisledet/Ubuntu-One-Mac/UbuntuOne%20v0.2.0.zip
+[license]:https://github.com/chrisledet/Uno/blob/master/LICENSE
+[changelog]:https://github.com/chrisledet/Uno/blob/master/CHANGELOG.md
+[issues]:https://github.com/chrisledet/Uno/issues
+[download]:https://github.com/downloads/chrisledet/Uno/UbuntuOne%20v0.2.0.zip
