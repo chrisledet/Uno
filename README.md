@@ -2,6 +2,8 @@
 
 [Ubuntu One](http://one.ubuntu.com/) client for OS X.
 
+**Looking for a new maintainer for this project. Contact me via email if you're interested**
+
 ### Requirements
 
 Requires OS X Lion (10.7) or later and an [Ubuntu One][u1] account.
